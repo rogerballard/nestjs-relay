@@ -16,7 +16,15 @@ export default {
     { file: pkg.module, format: 'es', sourcemap: true },
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: [],
+  external: [
+    '@nestjs/common',
+    '@nestjs/core',
+    '@nestjs/graphql',
+    'graphql-relay',
+    'graphql-tools',
+    'graphql',
+    'reflect-metadata'
+  ],
   watch: {
     include: 'src/**',
   },
