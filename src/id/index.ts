@@ -1,2 +1,2 @@
-export * from './global-id.type'
+export { GlobalID } from './global-id.type'
 export * from './id.scalar'
