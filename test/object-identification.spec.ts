@@ -45,6 +45,32 @@ describe('Object Identification', () => {
         }
       })
     })
+    it('should refetch the empire faction', async () => {
+      const query = `
+        query EmpireRefetchQuery {
+          node(id: "RmFjdGlvbjoy") {
+            id
+            ... on Faction {
+              name
+            }
+          }
+        }
+      `
+
+      const response = await request(app.getHttpServer())
+        .post('/graphql')
+        .send({ query })
+
+      expect(response.status).toBe(200)
+      expect(response.body).toEqual({
+        data: {
+          node: {
+            id: 'RmFjdGlvbjoy',
+            name: 'Galactic Empire'
+          }
+        }
+      })
+    })
   })
   describe('rebels field', () => {
     it('should fetch the ID and name of the rebels faction', async () => {
@@ -65,6 +91,32 @@ describe('Object Identification', () => {
       expect(response.body).toEqual({
         data: {
           rebels: {
+            id: 'RmFjdGlvbjox',
+            name: 'Alliance to Restore the Republic'
+          }
+        }
+      })
+    })
+    it('should refetch the rebels faction', async () => {
+      const query = `
+        query RebelsRefetchQuery {
+          node(id: "RmFjdGlvbjox") {
+            id
+            ... on Faction {
+              name
+            }
+          }
+        }
+      `
+
+      const response = await request(app.getHttpServer())
+        .post('/graphql')
+        .send({ query })
+
+      expect(response.status).toBe(200)
+      expect(response.body).toEqual({
+        data: {
+          node: {
             id: 'RmFjdGlvbjox',
             name: 'Alliance to Restore the Republic'
           }

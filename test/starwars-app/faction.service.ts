@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common'
 import { GlobalID } from '../../src/id'
 
+export interface FactionDTO {
+  id: GlobalID
+  name: string
+  ships: number[]
+}
+
 @Injectable()
 export class FactionService {
-  private factions = [
+  private factions: FactionDTO[] = [
     {
       id: new GlobalID('Faction', 1),
       name: 'Alliance to Restore the Republic',

@@ -19,12 +19,11 @@ type Ship implements Node {
 }
 
 type Query {
-  rebels: Faction
-  empire: Faction
-
   """Fetches an object given its ID"""
   node(
     """The ID of an object"""
     id: ID!
   ): Node
+  rebels: Faction
+  empire: Faction
 }

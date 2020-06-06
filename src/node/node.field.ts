@@ -1,26 +1,32 @@
-import { Resolver, Query, Args } from '@nestjs/graphql'
-import { typeNode, returnsNode } from './node.interface'
+import { Query, Args, Resolver } from '@nestjs/graphql'
+import { returnsNode, Node } from './node.interface'
 import { GlobalID } from '../id'
 
-export function NodeField<T = any>(resolveFunc: Function): any {
-  @Resolver(typeNode)
-  class NodeFieldResolver {
-    @Query(returnsNode, {
-      name: 'node',
-      description: 'Fetches an object given its ID',
-      nullable: true
-    })
-    async node(
-      @Args({
-        name: 'id',
-        nullable: false,
-        description: 'The ID of an object'
-      })
-      id: GlobalID
-    ): Promise<T> {
-      return resolveFunc(id)
-    }
+export type ResolveNodeReturns = Promise<Node> | Node | null | undefined
+
+export interface NodeResolver {
+  resolveNode(id: GlobalID): ResolveNodeReturns
+}
+
+@Resolver(Node)
+export abstract class NodeField implements NodeResolver {
+  resolveNode(id: GlobalID): ResolveNodeReturns {
+    throw new Error('Method not implemented.')
   }
 
-  return NodeFieldResolver
+  @Query(returnsNode, {
+    name: 'node',
+    description: 'Fetches an object given its ID',
+    nullable: true
+  })
+  node(
+    @Args({
+      name: 'id',
+      nullable: false,
+      description: 'The ID of an object'
+    })
+    id: GlobalID
+  ) {
+    return this.resolveNode(id)
+  }
 }
