@@ -30,8 +30,4 @@ describe('Schema', () => {
     const nodeField = queryType?.getFields()['node']
     expect(nodeField).toBeDefined()
   })
-
-  it('should match snapshot', () => {
-    expect(printSchema(schema)).toMatchSnapshot()
-  })
 })

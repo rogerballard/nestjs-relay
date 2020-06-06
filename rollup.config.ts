@@ -17,13 +17,16 @@ export default {
   ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: [
+    'apollo-server-express',
     '@nestjs/common',
     '@nestjs/core',
     '@nestjs/graphql',
+    '@nestjs/testing',
     'graphql-relay',
     'graphql-tools',
     'graphql',
-    'reflect-metadata'
+    'reflect-metadata',
+    'supertest'
   ],
   watch: {
     include: 'src/**',

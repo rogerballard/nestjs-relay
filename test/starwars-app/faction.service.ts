@@ -1,29 +1,30 @@
 import { Injectable } from '@nestjs/common'
+import { GlobalID } from '../../src/id'
 
 @Injectable()
 export class FactionService {
   private factions = [
     {
-      id: '1',
+      id: new GlobalID('Faction', 1),
       name: 'Alliance to Restore the Republic',
-      ships: ['1', '2', '3', '4', '5']
+      ships: [1, 2, 3, 4, 5]
     },
     {
-      id: '2',
+      id: new GlobalID('Faction', 2),
       name: 'Galactic Empire',
-      ships: ['6', '7', '8']
+      ships: [6, 7, 8]
     }
   ]
 
-  public getFaction(id: string) {
-    return this.factions.find(faction => faction.id === id)
+  public getFaction(id: number) {
+    return this.factions.find(faction => faction.id.id === id)
   }
 
   public getRebels() {
-    return this.getFaction('1')
+    return this.getFaction(1)
   }
 
   public getEmpire() {
-    return this.getFaction('2')
+    return this.getFaction(2)
   }
 }
