@@ -2,7 +2,7 @@
 
 ## Usage
 
-**Import the IDScalar provider into a module**
+Import the `IDScalar` provider into a module
 ```typescript
 import { Module } from '@nestjs/common'
 
@@ -12,7 +12,7 @@ import { Module } from '@nestjs/common'
 export class AppModule {}
 ```
 
-**Set a field to have type `GlobalID`**
+Set a field to have type `GlobalID`
 ```typescript
 import { ObjectType, Field} from '@nestjs/graphql'
 import { GlobalID } from 'nestjs-relay-tools'
