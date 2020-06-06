@@ -1,15 +1,18 @@
 import { Args, Resolver, Query } from '@nestjs/graphql'
 import { Faction } from './faction.type'
+import { FactionService } from './faction.service'
 
 @Resolver(Faction)
 export class FactionResolver {
+  constructor(private factionService: FactionService) {}
+
   @Query(() => Faction, { nullable: true })
   rebels() {
-    return null
+    return this.factionService.getRebels()
   }
 
   @Query(() => Faction, { nullable: true })
   empire() {
-    return null
+    return this.factionService.getEmpire()
   }
 }

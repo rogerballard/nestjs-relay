@@ -7,14 +7,15 @@ interface Node {
   id: ID!
 }
 
-type Faction implements Node {
+type Ship implements Node {
   id: ID!
   name: String
 }
 
-type Ship implements Node {
+type Faction implements Node {
   id: ID!
   name: String
+  ships: [Ship!]!
 }
 
 type Query {
