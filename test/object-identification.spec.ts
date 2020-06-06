@@ -21,53 +21,55 @@ describe('Object Identification', () => {
   })
 
   describe('empire query', () => {
-    const query = `
-      query EmpireQuery {
-        empire {
-          id
-          name
+    it('should fetch the ID and name of the empire faction', async () => {
+      const query = `
+        query EmpireQuery {
+          empire {
+            id
+            name
+          }
         }
-      }
-    `
+      `
 
-    it('should fetch the ID and name of the empire faction', () => {
-      return request(app.getHttpServer())
+      const response = await request(app.getHttpServer())
         .post('/graphql')
         .send({ query })
-        .expect(200)
-        .expect({
-          data: {
-            empire: {
-              id: 'RmFjdGlvbjoy',
-              name: 'Galactic Empire'
-            }
+
+      expect(response.status).toBe(200)
+      expect(response.body).toEqual({
+        data: {
+          empire: {
+            id: 'RmFjdGlvbjoy',
+            name: 'Galactic Empire'
           }
-        })
+        }
+      })
     })
   })
   describe('rebels query', () => {
-    const query = `
-      query RebelsQuery {
-        rebels {
-          id
-          name
+    it('should fetch the ID and name of the rebels faction', async () => {
+      const query = `
+        query RebelsQuery {
+          rebels {
+            id
+            name
+          }
         }
-      }
-    `
+      `
 
-    it('should fetch the ID and name of the rebels faction', () => {
-      return request(app.getHttpServer())
+      const response = await request(app.getHttpServer())
         .post('/graphql')
         .send({ query })
-        .expect(200)
-        .expect({
-          data: {
-            rebels: {
-              id: 'RmFjdGlvbjox',
-              name: 'Alliance to Restore the Republic'
-            }
+
+      expect(response.status).toBe(200)
+      expect(response.body).toEqual({
+        data: {
+          rebels: {
+            id: 'RmFjdGlvbjox',
+            name: 'Alliance to Restore the Republic'
           }
-        })
+        }
+      })
     })
   })
 })
