@@ -6,6 +6,6 @@ export class Ship implements Node {
   @Field()
   id!: GlobalID
 
-  @Field()
-  name!: string
+  @Field({ nullable: true })
+  name?: string
 }

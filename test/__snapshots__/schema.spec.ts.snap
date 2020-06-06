@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schema should match snapshot 1`] = `
+"\\"\\"\\"An object with an ID\\"\\"\\"
+interface Node {
+  \\"\\"\\"The ID of the object\\"\\"\\"
+  id: ID!
+}
+
+type Faction implements Node {
+  id: ID!
+  name: String
+}
+
+type Ship implements Node {
+  id: ID!
+  name: String
+}
+
+type Query {
+  rebels: Faction
+  empire: Faction
+
+  \\"\\"\\"Fetches an object given its ID\\"\\"\\"
+  node(
+    \\"\\"\\"The ID of an object\\"\\"\\"
+    id: ID!
+  ): Node
+}
+"
+`;

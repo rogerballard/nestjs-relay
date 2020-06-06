@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory } from '@nestjs/graphql'
-import { GraphQLSchema } from 'graphql'
+import { GraphQLSchema, printSchema } from 'graphql'
 import { IDScalar } from '../src/nestjs-relay-tools'
 import { FactionResolver, NodeFieldResolver } from './starwars-app'
 
@@ -29,5 +29,9 @@ describe('Schema', () => {
 
     const nodeField = queryType?.getFields()['node']
     expect(nodeField).toBeDefined()
+  })
+
+  it('should match snapshot', () => {
+    expect(printSchema(schema)).toMatchSnapshot()
   })
 })

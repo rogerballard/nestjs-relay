@@ -3,12 +3,12 @@ import { Faction } from './faction.type'
 
 @Resolver(Faction)
 export class FactionResolver {
-  @Query(() => Faction)
+  @Query(() => Faction, { nullable: true })
   rebels() {
     return null
   }
 
-  @Query(() => Faction)
+  @Query(() => Faction, { nullable: true })
   empire() {
     return null
   }
