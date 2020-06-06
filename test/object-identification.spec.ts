@@ -20,7 +20,7 @@ describe('Object Identification', () => {
     await app.close()
   })
 
-  describe('empire query', () => {
+  describe('empire field', () => {
     it('should fetch the ID and name of the empire faction', async () => {
       const query = `
         query EmpireQuery {
@@ -46,7 +46,7 @@ describe('Object Identification', () => {
       })
     })
   })
-  describe('rebels query', () => {
+  describe('rebels field', () => {
     it('should fetch the ID and name of the rebels faction', async () => {
       const query = `
         query RebelsQuery {
