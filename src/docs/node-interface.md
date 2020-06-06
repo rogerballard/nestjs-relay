@@ -2,24 +2,15 @@
 
 ## Usage
 
-**Import the IDScalar provider into a module**
 ```typescript
-import { Module } from '@nestjs/common'
+import { Node, GlobalID } from 'nestjs-relay-tools'
 
-@Module({
-  providers: [IDScalar]
-})
-export class AppModule {}
-```
-
-**Set a field to have type `GlobalID`**
-```typescript
-import { ObjectType, Field} from '@nestjs/graphql'
-import { GlobalID } from 'nestjs-relay-tools'
-
-@ObjectType()
-export class Faction {
+@Object({ implements: [Node] })
+export class Faction implements Node {
   @Field()
   id: GlobalID
+
+  @Field()
+  name: string
 }
 ```
