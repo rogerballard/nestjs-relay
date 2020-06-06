@@ -15,7 +15,7 @@ export class AppModule {}
 **Set a field to have type `GlobalID`**
 ```typescript
 import { ObjectType, Field} from '@nestjs/graphql'
-import { GlobalID } from 'this_package'
+import { GlobalID } from 'nestjs-relay-tools'
 
 @ObjectType()
 export class Faction {
