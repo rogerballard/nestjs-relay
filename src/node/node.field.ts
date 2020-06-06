@@ -7,7 +7,8 @@ export function NodeField<T = any>(resolveFunc: Function): any {
   class NodeFieldResolver {
     @Query(returnsNode, {
       name: 'node',
-      description: 'Fetches an object given its ID'
+      description: 'Fetches an object given its ID',
+      nullable: true
     })
     async node(
       @Args({
