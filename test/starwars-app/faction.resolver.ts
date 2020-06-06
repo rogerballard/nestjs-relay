@@ -4,7 +4,12 @@ import { Faction } from './faction.type'
 @Resolver(Faction)
 export class FactionResolver {
   @Query(() => Faction)
-  faction(@Args('id') id: string) {
+  rebels() {
+    return null
+  }
+
+  @Query(() => Faction)
+  empire() {
     return null
   }
 }

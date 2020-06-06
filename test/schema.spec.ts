@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core'
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory } from '@nestjs/graphql'
 import { GraphQLSchema } from 'graphql'
 import { IDScalar } from '../src/nestjs-relay-tools'
-import { FactionResolver, NodeFieldResolver } from './example-app'
+import { FactionResolver, NodeFieldResolver } from './starwars-app'
 
 const resolvers = [FactionResolver, NodeFieldResolver]
 const scalars = [IDScalar]
