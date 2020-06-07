@@ -4,7 +4,7 @@ import { ShipService } from './ship.service'
 import { FactionService } from './faction.service'
 import { NodeFieldsResolver } from './node.resolver'
 import { FactionResolver } from './faction.resolver'
-import { GlobalIDScalar } from '../../src/nestjs-relay-tools'
+import { GlobalIdScalar } from '../../src/nestjs-relay-tools'
 
 @Module({
   imports: [
@@ -12,6 +12,6 @@ import { GlobalIDScalar } from '../../src/nestjs-relay-tools'
       autoSchemaFile: './test/starwars-app/schema.gql'
     })
   ],
-  providers: [FactionResolver, FactionService, NodeFieldsResolver, ShipService, GlobalIDScalar]
+  providers: [FactionResolver, FactionService, NodeFieldsResolver, ShipService, GlobalIdScalar]
 })
 export class StarWarsModule {}

@@ -1,11 +1,11 @@
 import { Kind } from 'graphql'
-import { GlobalIDScalar } from './global-id.scalar'
+import { GlobalIdScalar } from './global-id.scalar'
 
 describe('ID Scalar', () => {
-  let scalar: GlobalIDScalar
+  let scalar: GlobalIdScalar
 
   beforeEach(() => {
-    scalar = new GlobalIDScalar()
+    scalar = new GlobalIdScalar()
   })
 
   describe('when a valid global id is provided', () => {

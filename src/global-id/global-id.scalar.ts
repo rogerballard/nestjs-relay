@@ -4,7 +4,7 @@ import { ValueNode, Kind, GraphQLError } from 'graphql'
 import { typeResolvedGlobalId, ResolvedGlobalId } from './resolved-global-id.type'
 
 @Scalar('ID', typeResolvedGlobalId)
-export class GlobalIDScalar implements CustomScalar<string, ResolvedGlobalId> {
+export class GlobalIdScalar implements CustomScalar<string, ResolvedGlobalId> {
   parseValue(value: string): ResolvedGlobalId {
     const { id, type } = fromGlobalId(value)
     if (!id || !type) {
