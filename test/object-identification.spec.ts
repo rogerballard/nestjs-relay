@@ -20,8 +20,8 @@ describe('Object Identification', () => {
     await app.close()
   })
 
-  describe('empire field', () => {
-    it('should fetch the ID and name of the empire faction', async () => {
+  describe('empire query', () => {
+    it('should fetch the empire faction', async () => {
       const query = `
         query EmpireQuery {
           empire {
@@ -72,8 +72,8 @@ describe('Object Identification', () => {
       })
     })
   })
-  describe('rebels field', () => {
-    it('should fetch the ID and name of the rebels faction', async () => {
+  describe('rebels query', () => {
+    it('should fetch the rebels faction', async () => {
       const query = `
         query RebelsQuery {
           rebels {
@@ -119,6 +119,34 @@ describe('Object Identification', () => {
           node: {
             id: 'RmFjdGlvbjox',
             name: 'Alliance to Restore the Republic'
+          }
+        }
+      })
+    })
+  })
+  describe('x-wing query', () => {
+    it('should refetch the x-wing ship', async () => {
+      const query = `
+        query XWingRefetchQuery {
+          node(id: "U2hpcDox") {
+            id
+            ... on Ship {
+              name
+            }
+          }
+        }
+      `
+
+      const response = await request(app.getHttpServer())
+        .post('/graphql')
+        .send({ query })
+
+      expect(response.status).toBe(200)
+      expect(response.body).toEqual({
+        data: {
+          node: {
+            id: 'U2hpcDox',
+            name: 'X-Wing'
           }
         }
       })
