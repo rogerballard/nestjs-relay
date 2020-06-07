@@ -1,14 +1,6 @@
-import { IDScalar } from './id.scalar'
 import { Kind } from 'graphql'
-import { GlobalID, typeGlobalID } from './global-id.type'
-
-describe('Helpers', () => {
-  describe('typeGlobalID', () => {
-    it('should return the GlobalID type', () => {
-      expect(typeGlobalID()).toBe(GlobalID)
-    })
-  })
-})
+import { IDScalar } from './id.scalar'
+import { GlobalID } from './global-id.type'
 
 describe('ID Scalar', () => {
   let scalar: IDScalar

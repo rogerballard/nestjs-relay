@@ -8,3 +8,5 @@ export class GlobalID {
 }
 
 export const typeGlobalID = () => GlobalID
+
+export const typeGlobalIDs = () => [GlobalID]

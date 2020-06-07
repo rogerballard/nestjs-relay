@@ -14,4 +14,8 @@ export class Node {
 
 export const typeNode = () => Node
 
+export const typeNodes = () => [Node]
+
 export const returnsNode = () => Node
+
+export const returnsNodes = () => [Node]

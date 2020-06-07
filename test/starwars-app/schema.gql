@@ -24,6 +24,12 @@ type Query {
     """The ID of an object"""
     id: ID!
   ): Node
+
+  """Fetches objects given their IDs"""
+  nodes(
+    """The IDs of objects"""
+    ids: [ID!]!
+  ): [Node]!
   rebels: Faction
   empire: Faction
 }

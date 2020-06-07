@@ -30,4 +30,12 @@ describe('Schema', () => {
     const nodeField = queryType?.getFields()['node']
     expect(nodeField).toBeDefined()
   })
+
+  it('should contain the `nodes` field on the `Query` type', () => {
+    const queryType = schema.getQueryType()
+    expect(queryType).toBeDefined()
+
+    const nodesField = queryType?.getFields()['nodes']
+    expect(nodesField).toBeDefined()
+  })
 })
