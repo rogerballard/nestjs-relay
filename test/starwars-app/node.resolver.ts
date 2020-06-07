@@ -1,12 +1,12 @@
 import { Resolver } from '@nestjs/graphql'
-import { NodeFields, Node, GlobalID } from '../../src/nestjs-relay-tools'
+import { NodeFieldsDefinition, Node, GlobalID } from '../../src/nestjs-relay-tools'
 import { FactionService } from './faction.service'
 import { Faction } from './faction.type'
 import { ShipService } from './ship.service'
 import { Ship } from './ship.type'
 
 @Resolver(Node)
-export class NodeFieldResolver extends NodeFields {
+export class NodeFieldsResolver extends NodeFieldsDefinition {
   constructor(private factionService: FactionService, private shipService: ShipService) {
     super()
   }

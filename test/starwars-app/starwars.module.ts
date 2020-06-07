@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { ShipService } from './ship.service'
 import { FactionService } from './faction.service'
-import { NodeFieldResolver } from './node.resolver'
+import { NodeFieldsResolver } from './node.resolver'
 import { FactionResolver } from './faction.resolver'
 import { IDScalar } from '../../src/nestjs-relay-tools'
 
@@ -12,6 +12,6 @@ import { IDScalar } from '../../src/nestjs-relay-tools'
       autoSchemaFile: './test/starwars-app/schema.gql'
     })
   ],
-  providers: [FactionResolver, FactionService, NodeFieldResolver, ShipService, IDScalar]
+  providers: [FactionResolver, FactionService, NodeFieldsResolver, ShipService, IDScalar]
 })
 export class StarWarsModule {}

@@ -1,7 +1,7 @@
-import { NodeFields } from './node.field'
+import { NodeFieldsDefinition } from './node.field'
 import { GlobalID } from '../id'
 
-class NodeFieldResolver extends NodeFields {}
+class NodeFieldResolver extends NodeFieldsDefinition {}
 
 describe('NodeField', () => {
   let resolver = new NodeFieldResolver()

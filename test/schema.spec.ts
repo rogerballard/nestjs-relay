@@ -2,9 +2,9 @@ import { NestFactory } from '@nestjs/core'
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory } from '@nestjs/graphql'
 import { GraphQLSchema, printSchema } from 'graphql'
 import { IDScalar } from '../src/nestjs-relay-tools'
-import { FactionResolver, NodeFieldResolver } from './starwars-app'
+import { FactionResolver, NodeFieldsResolver } from './starwars-app'
 
-const resolvers = [FactionResolver, NodeFieldResolver]
+const resolvers = [FactionResolver, NodeFieldsResolver]
 const scalars = [IDScalar]
 
 describe('Schema', () => {

@@ -16,7 +16,7 @@ export interface NodeResolver {
 }
 
 @Resolver(Node)
-export abstract class NodeFields implements NodeResolver {
+export abstract class NodeFieldsDefinition implements NodeResolver {
   resolveNode(id: GlobalID): ResolveNodeReturns {
     throw new Error('Method not implemented.')
   }
