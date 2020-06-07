@@ -1,6 +1,5 @@
 import { Test } from '@nestjs/testing'
 import { INestApplication } from '@nestjs/common'
-import { GraphQLModule } from '@nestjs/graphql'
 import * as request from 'supertest'
 import { StarWarsModule } from './starwars-app'
 

@@ -1,23 +1,23 @@
 import { Scalar, CustomScalar } from '@nestjs/graphql'
 import { fromGlobalId, toGlobalId } from 'graphql-relay'
 import { ValueNode, Kind, GraphQLError } from 'graphql'
-import { typeGlobalID, GlobalID } from './global-id.type'
+import { typeResolvedGlobalId, ResolvedGlobalId } from './resolved-global-id.type'
 
-@Scalar('ID', typeGlobalID)
-export class IDScalar implements CustomScalar<string, GlobalID> {
-  parseValue(value: string): GlobalID {
+@Scalar('ID', typeResolvedGlobalId)
+export class GlobalIDScalar implements CustomScalar<string, ResolvedGlobalId> {
+  parseValue(value: string): ResolvedGlobalId {
     const { id, type } = fromGlobalId(value)
     if (!id || !type) {
       throw new GraphQLError(`Invalid ID: ${value}`)
     }
-    return new GlobalID(type, parseInt(id, 10))
+    return { type, id }
   }
 
-  serialize(value: GlobalID): string {
-    return toGlobalId(value.type, value.id.toString())
+  serialize(value: ResolvedGlobalId): string {
+    return toGlobalId(value.type, value.id)
   }
 
-  parseLiteral(ast: ValueNode): GlobalID {
+  parseLiteral(ast: ValueNode): ResolvedGlobalId {
     if (ast.kind !== Kind.STRING) {
       throw new GraphQLError(`Invalid ID type: ${ast.kind}`)
     }
@@ -25,6 +25,6 @@ export class IDScalar implements CustomScalar<string, GlobalID> {
     if (!id || !type) {
       throw new GraphQLError(`Invalid ID: ${ast.value}`)
     }
-    return new GlobalID(type, parseInt(id, 10))
+    return { type, id }
   }
 }

@@ -1,5 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql'
-import { GlobalID, Node } from '../../src/nestjs-relay-tools'
+import { Node, ResolvedGlobalId } from '../../src/nestjs-relay-tools'
 import { ShipDTO } from './ship.service'
 
 @ObjectType({ implements: [Node] })
@@ -9,7 +9,7 @@ export class Ship implements Node {
   }
 
   @Field()
-  id!: GlobalID
+  id!: ResolvedGlobalId
 
   @Field({ nullable: true })
   name?: string

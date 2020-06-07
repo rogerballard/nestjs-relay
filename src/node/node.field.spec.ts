@@ -1,5 +1,4 @@
 import { NodeFieldsDefinition } from './node.field'
-import { GlobalID } from '../id'
 
 class NodeFieldResolver extends NodeFieldsDefinition {}
 
@@ -9,7 +8,7 @@ describe('NodeField', () => {
   describe('resolveNode', () => {
     describe('when not overridden', () => {
       it('should throw an error', async () => {
-        const globalId = new GlobalID('Type', 1)
+        const globalId = { type: 'Type', id: '1' }
         try {
           resolver.resolveNode(globalId)
         } catch (error) {

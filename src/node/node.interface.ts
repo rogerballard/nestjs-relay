@@ -1,5 +1,5 @@
-import { Field, ID, InterfaceType } from '@nestjs/graphql'
-import { GlobalID } from '../id'
+import { Field, InterfaceType } from '@nestjs/graphql'
+import { ResolvedGlobalId } from '../global-id'
 
 @InterfaceType({
   description: 'An object with an ID'
@@ -9,7 +9,7 @@ export class Node {
     nullable: false,
     description: 'The ID of the object'
   })
-  id!: GlobalID
+  id!: ResolvedGlobalId
 }
 
 export const typeNode = () => Node

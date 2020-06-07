@@ -1,5 +1,5 @@
 import { Resolver } from '@nestjs/graphql'
-import { NodeFieldsDefinition, Node, GlobalID } from '../../src/nestjs-relay-tools'
+import { NodeFieldsDefinition, Node, ResolvedGlobalId } from '../../src/nestjs-relay-tools'
 import { FactionService } from './faction.service'
 import { Faction } from './faction.type'
 import { ShipService } from './ship.service'
@@ -11,7 +11,7 @@ export class NodeFieldsResolver extends NodeFieldsDefinition {
     super()
   }
 
-  resolveNode(globalId: GlobalID) {
+  resolveNode(globalId: ResolvedGlobalId) {
     switch (globalId.type) {
       case 'Faction':
         const faction = this.factionService.getFaction(globalId.id)

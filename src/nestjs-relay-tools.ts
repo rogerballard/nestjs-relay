@@ -1,2 +1,2 @@
-export * from './id'
+export * from './global-id'
 export * from './node'

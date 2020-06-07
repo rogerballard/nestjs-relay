@@ -1,4 +1,4 @@
-import { Args, Resolver, Query } from '@nestjs/graphql'
+import { Resolver, Query } from '@nestjs/graphql'
 import { Faction } from './faction.type'
 import { FactionService } from './faction.service'
 

@@ -1,11 +1,8 @@
 import { NestFactory } from '@nestjs/core'
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory } from '@nestjs/graphql'
-import { GraphQLSchema, printSchema } from 'graphql'
-import { IDScalar } from '../src/nestjs-relay-tools'
+import { GraphQLSchema } from 'graphql'
+import { GlobalIDScalar } from '../src/nestjs-relay-tools'
 import { FactionResolver, NodeFieldsResolver } from './starwars-app'
-
-const resolvers = [FactionResolver, NodeFieldsResolver]
-const scalars = [IDScalar]
 
 describe('Schema', () => {
   let schema: GraphQLSchema
@@ -15,7 +12,7 @@ describe('Schema', () => {
     await app.init()
 
     const gqlSchemaFactory = app.get(GraphQLSchemaFactory)
-    schema = await gqlSchemaFactory.create(resolvers, scalars)
+    schema = await gqlSchemaFactory.create([FactionResolver, NodeFieldsResolver], [GlobalIDScalar])
   })
 
   it('should contain the `Node` interface type', () => {
