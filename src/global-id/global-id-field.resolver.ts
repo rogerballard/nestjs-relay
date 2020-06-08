@@ -11,11 +11,11 @@ export interface ResolverInfo {
   parentType: Pick<GraphQLObjectType, 'name'>
 }
 
-export interface GlobalIdFieldResolverClassRef {
+export interface GlobalIdFieldResolver {
   id(parent: ResolverParent, info: ResolverInfo): ResolvedGlobalId
 }
 
-export function GlobalIdFieldResolver<T>(classRef: Type<T>): any & GlobalIdFieldResolverClassRef {
+export function GlobalIdFieldResolver<T>(classRef: Type<T>): Type<GlobalIdFieldResolver> {
   @Resolver(classRef, { isAbstract: true })
   abstract class GlobalIdFieldResolverHost {
     @ResolveField(typeResolvedGlobalId, {
@@ -36,5 +36,5 @@ export function GlobalIdFieldResolver<T>(classRef: Type<T>): any & GlobalIdField
       }
     }
   }
-  return GlobalIdFieldResolverHost
+  return GlobalIdFieldResolverHost as Type<GlobalIdFieldResolver>
 }
