@@ -9,3 +9,7 @@ export function applyMixins(derivedConstructor: any, baseConstructors: any[]) {
     })
   })
 }
+
+export type AnyFunction<A = any> = (...input: any[]) => A
+
+export type Mixin<T extends AnyFunction> = InstanceType<ReturnType<T>>
