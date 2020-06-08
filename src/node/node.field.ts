@@ -2,7 +2,7 @@ import { Query, Args, Resolver } from '@nestjs/graphql'
 import { returnsNode, Node, returnsNodes, typeNodes } from './node.interface'
 import { ResolvedGlobalId, typeResolvedGlobalId, typeResolvedGlobalIds } from '../global-id'
 
-export type ResolveNodeReturns =
+export type ResolvedNode =
   | Promise<Node>
   | Node
   | Promise<null>
@@ -11,12 +11,12 @@ export type ResolveNodeReturns =
   | undefined
 
 export interface NodeResolver {
-  resolveNode(id: ResolvedGlobalId): ResolveNodeReturns
+  resolveNode(id: ResolvedGlobalId): ResolvedNode
 }
 
 @Resolver(Node)
 export abstract class NodeFieldsDefinition implements NodeResolver {
-  resolveNode(id: ResolvedGlobalId): ResolveNodeReturns {
+  resolveNode(id: ResolvedGlobalId): ResolvedNode {
     throw new Error('Method not implemented.')
   }
 
@@ -25,7 +25,7 @@ export abstract class NodeFieldsDefinition implements NodeResolver {
     description: 'Fetches an object given its ID',
     nullable: true
   })
-  async node(
+  node(
     @Args({
       name: 'id',
       nullable: false,
@@ -33,7 +33,7 @@ export abstract class NodeFieldsDefinition implements NodeResolver {
       type: typeResolvedGlobalId
     })
     id: ResolvedGlobalId
-  ) {
+  ): ResolvedNode {
     return this.resolveNode(id)
   }
 
@@ -42,7 +42,7 @@ export abstract class NodeFieldsDefinition implements NodeResolver {
     description: 'Fetches objects given their IDs',
     nullable: 'items'
   })
-  async nodes(
+  nodes(
     @Args({
       name: 'ids',
       nullable: false,
@@ -50,7 +50,7 @@ export abstract class NodeFieldsDefinition implements NodeResolver {
       type: typeResolvedGlobalIds
     })
     ids: ResolvedGlobalId[]
-  ) {
+  ): Promise<ResolvedNode[]> {
     return Promise.all(ids.map(id => Promise.resolve(this.resolveNode(id))))
   }
 }
