@@ -33,3 +33,7 @@ type Query {
   rebels: Faction
   empire: Faction
 }
+
+type Mutation {
+  introduceShip: Ship
+}
