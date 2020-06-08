@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common'
-import { ResolvedGlobalId, globalIdToNumber } from '../../src/global-id'
 
 export interface ShipDTO {
   id: number
