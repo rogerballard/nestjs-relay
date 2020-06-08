@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
-import { ResolvedGlobalId } from '../../src/nestjs-relay-tools'
+import { ResolvedGlobalId, GlobalId } from '../../src/nestjs-relay-tools'
 
 export interface FactionDTO {
-  id: ResolvedGlobalId | string | number
+  id: string
   name: string
   ships: number[]
 }
@@ -22,7 +22,7 @@ export class FactionService {
     }
   ]
 
-  public getFaction(id: string | number) {
+  public getFaction(id: string) {
     return this.factions.find(faction => faction.id === id)
   }
 

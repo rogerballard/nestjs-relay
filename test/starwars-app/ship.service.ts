@@ -1,49 +1,49 @@
 import { Injectable } from '@nestjs/common'
-import { ResolvedGlobalId } from '../../src/nestjs-relay-tools'
+import { ResolvedGlobalId, globalIdToNumber } from '../../src/global-id'
 
 export interface ShipDTO {
-  id: ResolvedGlobalId
+  id: number
   name: string
 }
 
 @Injectable()
 export class ShipService {
-  private ships = [
+  private ships: ShipDTO[] = [
     {
-      id: { type: 'Ship', id: '1' },
+      id: 1,
       name: 'X-Wing'
     },
     {
-      id: { type: 'Ship', id: '2' },
+      id: 2,
       name: 'Y-Wing'
     },
     {
-      id: { type: 'Ship', id: '3' },
+      id: 3,
       name: 'A-Wing'
     },
     {
-      id: { type: 'Ship', id: '4' },
+      id: 4,
       name: 'Millenium Falcon'
     },
     {
-      id: { type: 'Ship', id: '5' },
+      id: 5,
       name: 'Home One'
     },
     {
-      id: { type: 'Ship', id: '6' },
+      id: 6,
       name: 'TIE Fighter'
     },
     {
-      id: { type: 'Ship', id: '7' },
+      id: 7,
       name: 'TIE Interceptor'
     },
     {
-      id: { type: 'Ship', id: '8' },
+      id: 8,
       name: 'Executor'
     }
   ]
 
-  public getShip(id: string) {
-    return this.ships.find(ship => ship.id.id === id)
+  public getShip(id: number) {
+    return this.ships.find(ship => ship.id === id)
   }
 }

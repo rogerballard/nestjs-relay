@@ -8,3 +8,11 @@ export class ResolvedGlobalId implements RelayResolvedGlobalId {
 export const typeResolvedGlobalId = () => ResolvedGlobalId
 
 export const typeResolvedGlobalIds = () => [ResolvedGlobalId]
+
+export type GlobalId = ResolvedGlobalId | string | number
+
+export const resolvedGlobalIdToString = (resolvedGlobalId: ResolvedGlobalId): string =>
+  resolvedGlobalId.id
+
+export const resolvedGlobalIdToNumber = (resolvedGlobalId: ResolvedGlobalId): number =>
+  Number(resolvedGlobalId.id)

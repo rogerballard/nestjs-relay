@@ -1,7 +1,7 @@
-import { Resolver, ResolveField, Query, Info, Parent } from '@nestjs/graphql'
+import { Resolver, Query } from '@nestjs/graphql'
+import { GlobalIdFieldResolver } from '../../src/nestjs-relay-tools'
 import { Faction } from './faction.type'
 import { FactionService } from './faction.service'
-import { GlobalIdFieldResolver } from '../../src/nestjs-relay-tools'
 
 @Resolver(Faction)
 export class FactionResolver extends GlobalIdFieldResolver(Faction) {
