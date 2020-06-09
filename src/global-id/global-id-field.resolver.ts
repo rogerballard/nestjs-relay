@@ -12,7 +12,7 @@ export interface ResolverInfo {
 }
 
 export interface GlobalIdFieldResolver {
-  id(parent: ResolverParent, info: ResolverInfo): ResolvedGlobalId
+  id(parent: ResolverParent | null, info: ResolverInfo): ResolvedGlobalId
 }
 
 export function GlobalIdFieldResolver<T>(classRef: Type<T>): Type<GlobalIdFieldResolver> {
