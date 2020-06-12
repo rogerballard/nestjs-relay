@@ -1,27 +1,18 @@
-import {
-  ReturnTypeFunc,
-  MutationOptions,
-  Mutation,
-  ObjectType,
-  Field,
-  ObjectTypeOptions
-} from '@nestjs/graphql'
-import { PayloadMixin, PayloadMixinOptions } from './payload.mixin'
+import { ReturnTypeFunc, MutationOptions, Mutation } from '@nestjs/graphql'
+import { PayloadMixin } from './payload.mixin'
 import { AnyConstructor } from './types'
+
+export type RelayMutationOptions = MutationOptions
 
 export function RelayMutation<T>(
   typeFunc: ReturnTypeFunc,
-  options?: MutationOptions
+  options?: RelayMutationOptions
 ): MethodDecorator {
   return (target: Object | Function, key: string | symbol, descriptor: any) => {
-    const mutationName = options?.name ? options.name : 'DefaultMutationPayload'
+    const outputType = typeFunc() as AnyConstructor
+    const mutationName = options?.name ? options.name : String(key)
 
-    const payloadMixinOptions: PayloadMixinOptions = {
-      mutationName
-    }
-
-    const type = typeFunc() as AnyConstructor
-    const payload = PayloadMixin(type, payloadMixinOptions)
+    const payload = PayloadMixin(outputType, { mutationName })
 
     Mutation(() => payload, options)(target, key, descriptor)
   }
