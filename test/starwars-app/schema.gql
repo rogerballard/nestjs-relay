@@ -18,6 +18,12 @@ type Ship implements Node {
   name: String
 }
 
+type IntroduceShipPayload {
+  ship: Ship
+  faction: Faction
+  clientMutationId: String
+}
+
 type Query {
   """Fetches an object given its ID"""
   node(
@@ -35,5 +41,5 @@ type Query {
 }
 
 type Mutation {
-  introduceShip: Ship
+  introduceShip: IntroduceShipPayload
 }

@@ -1,10 +1,11 @@
 import { Resolver, Mutation } from '@nestjs/graphql'
-import { GlobalIdFieldResolver } from '../../src/nestjs-relay-tools'
+import { GlobalIdFieldResolver, RelayMutation } from '../../src/nestjs-relay-tools'
 import { Ship } from './ship.type'
+import { IntroduceShipOutput } from './introduce-ship.output'
 
 @Resolver(Ship)
 export class ShipResolver extends GlobalIdFieldResolver(Ship) {
-  @Mutation(() => Ship, {
+  @RelayMutation(() => IntroduceShipOutput, {
     name: 'introduceShip',
     nullable: true
   })
