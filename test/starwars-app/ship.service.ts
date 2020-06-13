@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { FactionService } from './faction.service'
 
 export interface ShipDTO {
   id: number
@@ -7,6 +8,8 @@ export interface ShipDTO {
 
 @Injectable()
 export class ShipService {
+  constructor(private factionService: FactionService) {}
+
   private ships: ShipDTO[] = [
     {
       id: 1,
@@ -42,7 +45,18 @@ export class ShipService {
     }
   ]
 
+  private nextShipId = 9
+
   public getShip(id: number) {
     return this.ships.find(ship => ship.id === id)
+  }
+
+  public createShip(name: string, factionId: string) {
+    const id = this.nextShipId++
+    this.ships.push({ id, name })
+
+    this.factionService.assignShip(factionId, id)
+
+    return this.getShip(id)
   }
 }

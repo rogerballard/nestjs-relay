@@ -33,4 +33,9 @@ export class FactionService {
   public getEmpire() {
     return this.getFaction('2')
   }
+
+  public assignShip(factionId: string, shipId: number) {
+    const factionIndex = this.factions.findIndex(faction => faction.id === factionId)
+    this.factions[factionIndex].ships.push(shipId)
+  }
 }

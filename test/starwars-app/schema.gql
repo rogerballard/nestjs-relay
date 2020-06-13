@@ -41,5 +41,11 @@ type Query {
 }
 
 type Mutation {
-  introduceShip: IntroduceShipPayload
+  introduceShip(input: IntroduceShipInput!): IntroduceShipPayload
+}
+
+input IntroduceShipInput {
+  shipName: String!
+  factionId: ID!
+  clientMutationId: String
 }
