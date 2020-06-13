@@ -9,7 +9,6 @@ import {
 } from '@nestjs/graphql'
 import { GraphQLSchema, isObjectType, GraphQLObjectType } from 'graphql'
 import { RelayMutation } from './relay-mutation.decorator'
-import { Node } from '../node'
 import { GlobalIdScalar, ResolvedGlobalId } from '../global-id'
 
 @ObjectType()
