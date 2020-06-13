@@ -2,7 +2,7 @@ import { ReturnTypeFunc, MutationOptions, Mutation } from '@nestjs/graphql'
 import { PayloadMixin } from './payload.mixin'
 import { AnyConstructor } from './types'
 
-export type RelayMutationOptions = MutationOptions
+export type RelayMutationOptions = Omit<MutationOptions, 'nullable'>
 
 export function RelayMutation<T>(
   typeFunc: ReturnTypeFunc,
@@ -14,6 +14,12 @@ export function RelayMutation<T>(
 
     const payload = PayloadMixin(outputType, { mutationName })
 
-    Mutation(() => payload, options)(target, key, descriptor)
+    const mutationOptions: MutationOptions = {
+      ...options,
+      name: mutationName,
+      nullable: true
+    }
+
+    Mutation(() => payload, mutationOptions)(target, key, descriptor)
   }
 }

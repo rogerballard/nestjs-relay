@@ -5,6 +5,7 @@ import { IntroduceShipOutput } from './introduce-ship.output'
 import { IntroduceShipInput } from './introduce-ship.input'
 import { ShipService } from './ship.service'
 import { FactionService } from './faction.service'
+import { RelayArgs } from '../../src/mutation/relay-args.decorator'
 
 @Resolver(Ship)
 export class ShipResolver extends GlobalIdFieldResolver(Ship) {
@@ -13,17 +14,16 @@ export class ShipResolver extends GlobalIdFieldResolver(Ship) {
   }
 
   @RelayMutation(() => IntroduceShipOutput, {
-    name: 'introduceShip',
-    nullable: true
+    name: 'introduceShip'
   })
-  introduceShip(@Args('input') input: IntroduceShipInput) {
+  introduceShip(@RelayArgs(() => IntroduceShipInput) input: IntroduceShipInput) {
     const ship = this.shipService.createShip(input.shipName, input.factionId.id)
     const faction = this.factionService.getFaction(input.factionId.id)
 
     return {
       ship,
       faction,
-      clientMutationId: input.clientMutationId
+      clientMutationId: 'abcde'
     }
   }
 }

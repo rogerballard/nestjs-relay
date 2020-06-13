@@ -8,7 +8,4 @@ export class IntroduceShipInput {
 
   @Field()
   factionId!: ResolvedGlobalId
-
-  @Field({ nullable: true })
-  clientMutationId!: string
 }
