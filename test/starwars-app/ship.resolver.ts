@@ -22,8 +22,7 @@ export class ShipResolver extends GlobalIdFieldResolver(Ship) {
 
     return {
       ship,
-      faction,
-      clientMutationId: 'abcde'
+      faction
     }
   }
 }

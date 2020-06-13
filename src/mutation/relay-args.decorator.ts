@@ -9,7 +9,6 @@ export function RelayArgs<T>(
   options?: RelayArgsOptions
 ): ParameterDecorator {
   return (target: Object | Function, key: string | symbol, paramIndex: number) => {
-    console.log('***', target, key, paramIndex)
     const inputType = typeFunc() as AnyConstructor
     const mutationName = 'IntroduceShip'
 
