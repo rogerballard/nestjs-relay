@@ -5,7 +5,7 @@ import { ResolvedGlobalId } from './resolved-global-id.type'
 import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver'
 
 @ObjectType({ implements: [Node] })
-export class Faction implements Node {
+class Type implements Node {
   @Field()
   id!: ResolvedGlobalId
 
@@ -13,33 +13,33 @@ export class Faction implements Node {
   name?: string
 }
 
-@Resolver(Faction)
-export class FactionResolver extends GlobalIdFieldResolver(Faction) {}
+@Resolver(Type)
+export class TypeResolver extends GlobalIdFieldResolver(Type) {}
 
 describe('GlobalIdFieldResolver', () => {
-  let resolver: FactionResolver
+  let resolver: TypeResolver
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      providers: [FactionResolver]
+      providers: [TypeResolver]
     }).compile()
 
-    resolver = module.get<FactionResolver>(FactionResolver)
+    resolver = module.get<TypeResolver>(TypeResolver)
   })
 
   describe('id resolver', () => {
     describe('when the `parent.id` is a ResolvedGlobalId', () => {
       it('should return the `parent.id` value', () => {
         const parent: ResolverParent = {
-          id: { id: '1', type: 'Faction' }
+          id: { id: '1', type: 'Type' }
         }
         const info: ResolverInfo = {
-          parentType: { name: 'Faction' }
+          parentType: { name: 'Type' }
         }
 
         const result = resolver.id(parent, info)
 
-        expect(result).toEqual({ id: '1', type: 'Faction' })
+        expect(result).toEqual({ id: '1', type: 'Type' })
       })
     })
     describe('when the `parent.id` is a string', () => {
@@ -48,12 +48,12 @@ describe('GlobalIdFieldResolver', () => {
           id: '1'
         }
         const info: ResolverInfo = {
-          parentType: { name: 'Faction' }
+          parentType: { name: 'Type' }
         }
 
         const result = resolver.id(parent, info)
 
-        expect(result).toEqual({ id: '1', type: 'Faction' })
+        expect(result).toEqual({ id: '1', type: 'Type' })
       })
     })
     describe('when the `parent.id` is a number', () => {
@@ -62,18 +62,18 @@ describe('GlobalIdFieldResolver', () => {
           id: 1
         }
         const info: ResolverInfo = {
-          parentType: { name: 'Faction' }
+          parentType: { name: 'Type' }
         }
 
         const result = resolver.id(parent, info)
 
-        expect(result).toEqual({ id: '1', type: 'Faction' })
+        expect(result).toEqual({ id: '1', type: 'Type' })
       })
     })
     describe('when the `parent.id` is another type', () => {
       it('should throw an error', () => {
         const info: ResolverInfo = {
-          parentType: { name: 'Faction' }
+          parentType: { name: 'Type' }
         }
 
         let result
