@@ -5,7 +5,8 @@ import {
   ObjectType,
   Field,
   GraphQLSchemaFactory,
-  Query
+  Query,
+  Args
 } from '@nestjs/graphql'
 import { GraphQLSchema, isObjectType, GraphQLObjectType } from 'graphql'
 import { RelayMutation } from './relay-mutation.decorator'
