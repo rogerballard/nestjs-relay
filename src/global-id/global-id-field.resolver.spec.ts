@@ -1,88 +1,90 @@
-import { Test } from '@nestjs/testing'
-import { ObjectType, Field, Resolver, Query } from '@nestjs/graphql'
-import { Node } from '../node'
-import { ResolvedGlobalId } from './resolved-global-id.type'
-import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver'
+import { Test } from '@nestjs/testing';
+import { ObjectType, Field, Resolver, Query } from '@nestjs/graphql';
+import { Node } from '../node';
+import { ResolvedGlobalId } from './resolved-global-id.type';
+import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver';
 
 @ObjectType({ implements: [Node] })
 class Type implements Node {
   @Field()
-  id!: ResolvedGlobalId
+  id!: ResolvedGlobalId;
 
   @Field({ nullable: true })
-  name?: string
+  name?: string;
 }
 
 @Resolver(Type)
 export class TypeResolver extends GlobalIdFieldResolver(Type) {}
 
 describe('GlobalIdFieldResolver', () => {
-  let resolver: TypeResolver
+  let resolver: TypeResolver;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      providers: [TypeResolver]
-    }).compile()
+      providers: [TypeResolver],
+    }).compile();
 
-    resolver = module.get<TypeResolver>(TypeResolver)
-  })
+    resolver = module.get<TypeResolver>(TypeResolver);
+  });
 
   describe('id resolver', () => {
     describe('when the `parent.id` is a ResolvedGlobalId', () => {
       it('should return the `parent.id` value', () => {
         const parent: ResolverParent = {
-          id: { id: '1', type: 'Type' }
-        }
+          id: { id: '1', type: 'Type' },
+        };
         const info: ResolverInfo = {
-          parentType: { name: 'Type' }
-        }
+          parentType: { name: 'Type' },
+        };
 
-        const result = resolver.id(parent, info)
+        const result = resolver.id(parent, info);
 
-        expect(result).toEqual({ id: '1', type: 'Type' })
-      })
-    })
+        expect(result).toEqual({ id: '1', type: 'Type' });
+      });
+    });
     describe('when the `parent.id` is a string', () => {
       it('should construct a new ResolvedGlobalId', () => {
         const parent: ResolverParent = {
-          id: '1'
-        }
+          id: '1',
+        };
         const info: ResolverInfo = {
-          parentType: { name: 'Type' }
-        }
+          parentType: { name: 'Type' },
+        };
 
-        const result = resolver.id(parent, info)
+        const result = resolver.id(parent, info);
 
-        expect(result).toEqual({ id: '1', type: 'Type' })
-      })
-    })
+        expect(result).toEqual({ id: '1', type: 'Type' });
+      });
+    });
     describe('when the `parent.id` is a number', () => {
       it('should construct a new ResolvedGlobalId', () => {
         const parent: ResolverParent = {
-          id: 1
-        }
+          id: 1,
+        };
         const info: ResolverInfo = {
-          parentType: { name: 'Type' }
-        }
+          parentType: { name: 'Type' },
+        };
 
-        const result = resolver.id(parent, info)
+        const result = resolver.id(parent, info);
 
-        expect(result).toEqual({ id: '1', type: 'Type' })
-      })
-    })
+        expect(result).toEqual({ id: '1', type: 'Type' });
+      });
+    });
     describe('when the `parent.id` is another type', () => {
       it('should throw an error', () => {
         const info: ResolverInfo = {
-          parentType: { name: 'Type' }
-        }
+          parentType: { name: 'Type' },
+        };
 
-        let result
+        let result;
         try {
-          result = resolver.id(null, info)
+          result = resolver.id(null, info);
         } catch (error) {
-          expect(error).toEqual(new Error(`Cannot resolve id when 'parent' or 'parent.id' is null`))
+          expect(error).toEqual(
+            new Error(`Cannot resolve id when 'parent' or 'parent.id' is null`),
+          );
         }
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});

@@ -1,24 +1,24 @@
-import { Field, InputType } from '@nestjs/graphql'
-import { getInputName } from './helpers'
-import { Mixin, AnyConstructor } from './types'
+import { Field, InputType } from '@nestjs/graphql';
+import { getInputName } from './helpers';
+import { Mixin, AnyConstructor } from './types';
 
 export interface InputMixinOptions {
-  mutationName: string
+  mutationName: string;
 }
 
 export function InputMixin<TBase extends AnyConstructor>(base: TBase, options: InputMixinOptions) {
-  const name = getInputName(options.mutationName)
+  const name = getInputName(options.mutationName);
 
   @InputType(name)
   class Input extends base {
     @Field({
       name: 'clientMutationId',
-      nullable: true
+      nullable: true,
     })
-    clientMutationId?: string
+    clientMutationId?: string;
   }
 
-  return Input
+  return Input;
 }
 
-export type InputMixin = Mixin<typeof InputMixin>
+export type InputMixin = Mixin<typeof InputMixin>;

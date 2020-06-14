@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common'
-import { FactionService } from './faction.service'
+import { Injectable } from '@nestjs/common';
+import { FactionService } from './faction.service';
 
 export interface ShipDTO {
-  id: number
-  name: string
+  id: number;
+  name: string;
 }
 
 @Injectable()
@@ -13,50 +13,50 @@ export class ShipService {
   private ships: ShipDTO[] = [
     {
       id: 1,
-      name: 'X-Wing'
+      name: 'X-Wing',
     },
     {
       id: 2,
-      name: 'Y-Wing'
+      name: 'Y-Wing',
     },
     {
       id: 3,
-      name: 'A-Wing'
+      name: 'A-Wing',
     },
     {
       id: 4,
-      name: 'Millenium Falcon'
+      name: 'Millenium Falcon',
     },
     {
       id: 5,
-      name: 'Home One'
+      name: 'Home One',
     },
     {
       id: 6,
-      name: 'TIE Fighter'
+      name: 'TIE Fighter',
     },
     {
       id: 7,
-      name: 'TIE Interceptor'
+      name: 'TIE Interceptor',
     },
     {
       id: 8,
-      name: 'Executor'
-    }
-  ]
+      name: 'Executor',
+    },
+  ];
 
-  private nextShipId = 9
+  private nextShipId = 9;
 
   public getShip(id: number) {
-    return this.ships.find(ship => ship.id === id)
+    return this.ships.find(ship => ship.id === id);
   }
 
   public createShip(name: string, factionId: string) {
-    const id = this.nextShipId++
-    this.ships.push({ id, name })
+    const id = this.nextShipId++;
+    this.ships.push({ id, name });
 
-    this.factionService.assignShip(factionId, id)
+    this.factionService.assignShip(factionId, id);
 
-    return this.getShip(id)
+    return this.getShip(id);
   }
 }

@@ -32,7 +32,8 @@
     "commit": "git-cz",
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -75,8 +76,9 @@
     "collectCoverage": true
   },
   "prettier": {
-    "semi": false,
-    "singleQuote": true
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
   },
   "commitlint": {
     "extends": [

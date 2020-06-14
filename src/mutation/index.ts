@@ -1,1 +1,1 @@
-export * from './relay-mutation.decorator'
+export * from './relay-mutation.decorator';

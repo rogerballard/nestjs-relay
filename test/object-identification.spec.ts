@@ -1,23 +1,23 @@
-import { Test } from '@nestjs/testing'
-import { INestApplication } from '@nestjs/common'
-import * as request from 'supertest'
-import { StarWarsModule } from './starwars-app'
+import { Test } from '@nestjs/testing';
+import { INestApplication } from '@nestjs/common';
+import * as request from 'supertest';
+import { StarWarsModule } from './starwars-app';
 
 describe('Object Identification', () => {
-  let app: INestApplication
+  let app: INestApplication;
 
   beforeAll(async () => {
     const module = await Test.createTestingModule({
-      imports: [StarWarsModule]
-    }).compile()
+      imports: [StarWarsModule],
+    }).compile();
 
-    app = module.createNestApplication()
-    await app.init()
-  })
+    app = module.createNestApplication();
+    await app.init();
+  });
 
   afterAll(async () => {
-    await app.close()
-  })
+    await app.close();
+  });
 
   describe('empire query', () => {
     it('should fetch the empire faction', async () => {
@@ -28,22 +28,22 @@ describe('Object Identification', () => {
             name
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           empire: {
             id: 'RmFjdGlvbjoy',
-            name: 'Galactic Empire'
-          }
-        }
-      })
-    })
+            name: 'Galactic Empire',
+          },
+        },
+      });
+    });
     it('should refetch the empire faction', async () => {
       const query = `
         query EmpireRefetchQuery {
@@ -54,23 +54,23 @@ describe('Object Identification', () => {
             }
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           node: {
             id: 'RmFjdGlvbjoy',
-            name: 'Galactic Empire'
-          }
-        }
-      })
-    })
-  })
+            name: 'Galactic Empire',
+          },
+        },
+      });
+    });
+  });
 
   describe('rebels query', () => {
     it('should fetch the rebels faction', async () => {
@@ -81,22 +81,22 @@ describe('Object Identification', () => {
             name
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           rebels: {
             id: 'RmFjdGlvbjox',
-            name: 'Alliance to Restore the Republic'
-          }
-        }
-      })
-    })
+            name: 'Alliance to Restore the Republic',
+          },
+        },
+      });
+    });
     it('should refetch the rebels faction', async () => {
       const query = `
         query RebelsRefetchQuery {
@@ -107,23 +107,23 @@ describe('Object Identification', () => {
             }
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           node: {
             id: 'RmFjdGlvbjox',
-            name: 'Alliance to Restore the Republic'
-          }
-        }
-      })
-    })
-  })
+            name: 'Alliance to Restore the Republic',
+          },
+        },
+      });
+    });
+  });
 
   describe('x-wing query', () => {
     it('should refetch the x-wing ship', async () => {
@@ -136,23 +136,23 @@ describe('Object Identification', () => {
             }
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           node: {
             id: 'U2hpcDox',
-            name: 'X-Wing'
-          }
-        }
-      })
-    })
-  })
+            name: 'X-Wing',
+          },
+        },
+      });
+    });
+  });
 
   describe('ships query', () => {
     it('should refetch multiple ships', async () => {
@@ -165,24 +165,24 @@ describe('Object Identification', () => {
             }
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           nodes: [
             { id: 'U2hpcDox', name: 'X-Wing' },
             { id: 'U2hpcDo3', name: 'TIE Interceptor' },
-            { id: 'U2hpcDo0', name: 'Millenium Falcon' }
-          ]
-        }
-      })
-    })
-  })
+            { id: 'U2hpcDo0', name: 'Millenium Falcon' },
+          ],
+        },
+      });
+    });
+  });
 
   describe('ships and factions query', () => {
     it('should refetch multiple ships and factions', async () => {
@@ -198,23 +198,23 @@ describe('Object Identification', () => {
             }
           }
         }
-      `
+      `;
 
       const response = await request(app.getHttpServer())
         .post('/graphql')
-        .send({ query })
+        .send({ query });
 
-      expect(response.status).toBe(200)
+      expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: {
           nodes: [
             { id: 'U2hpcDo1', name: 'Home One' },
             { id: 'RmFjdGlvbjox', name: 'Alliance to Restore the Republic' },
             { id: 'U2hpcDoz', name: 'A-Wing' },
-            { id: 'RmFjdGlvbjoy', name: 'Galactic Empire' }
-          ]
-        }
-      })
-    })
-  })
-})
+            { id: 'RmFjdGlvbjoy', name: 'Galactic Empire' },
+          ],
+        },
+      });
+    });
+  });
+});
