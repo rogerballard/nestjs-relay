@@ -1,6 +1,7 @@
 import { ReturnTypeFunc, MutationOptions, Mutation } from '@nestjs/graphql'
 import { PayloadMixin } from './payload.mixin'
-import { AnyConstructor } from './types'
+import { AnyConstructor, AnyFunction } from './types'
+import { getClientMutationId } from './helpers'
 
 export type RelayMutationOptions = Omit<MutationOptions, 'nullable'>
 
@@ -13,18 +14,9 @@ export function RelayMutation<T>(
     const mutationName = options?.name ? options.name : String(key)
 
     const originalMethod = descriptor.value
-
     descriptor.value = function(...args: any[]) {
-      const relayArgIndex = args.findIndex(arg => arg['clientMutationId'])
-      const clientMutationId = args[relayArgIndex].clientMutationId
-
-      const mappedArgs = args.map(arg => {
-        const { clientMutationId, ...rest } = arg
-        return rest
-      })
-
-      const methodResult = originalMethod.apply(this, mappedArgs)
-
+      const clientMutationId = getClientMutationId(args)
+      const methodResult = originalMethod.apply(this, args)
       return { ...methodResult, clientMutationId }
     }
 
