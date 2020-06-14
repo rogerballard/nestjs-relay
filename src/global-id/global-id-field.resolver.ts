@@ -28,7 +28,7 @@ export function GlobalIdFieldResolver<T>(classRef: Type<T>): Type<GlobalIdFieldR
       }
       switch (typeof parent.id) {
         case 'object':
-          return parent.id as ResolvedGlobalId
+          return parent.id
         case 'string':
           return { type: info.parentType.name, id: parent.id }
         case 'number':

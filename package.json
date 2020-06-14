@@ -1,6 +1,6 @@
 {
   "name": "nestjs-relay-tools",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "",
   "keywords": [],
   "main": "dist/nestjs-relay-tools.umd.js",
@@ -12,7 +12,7 @@
   "author": "Roger Ballard <hello@rogerballard.dev>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/rogerballard/nestjs-relay.git"
   },
   "license": "MIT",
   "engines": {
@@ -124,7 +124,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.18.0",
-    "semantic-release": "^15.9.16",
+    "semantic-release": "^17.0.8",
     "shelljs": "^0.8.3",
     "supertest": "^4.0.2",
     "travis-deploy-once": "^5.0.9",
@@ -141,5 +141,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }
