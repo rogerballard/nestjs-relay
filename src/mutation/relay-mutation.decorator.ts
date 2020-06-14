@@ -1,7 +1,9 @@
-import { ReturnTypeFunc, MutationOptions, Mutation } from '@nestjs/graphql'
+import { ReturnTypeFunc, MutationOptions, Mutation, ArgsOptions, Args } from '@nestjs/graphql'
 import { PayloadMixin } from './payload.mixin'
-import { AnyConstructor, AnyFunction } from './types'
+import { InputMixin } from './input.mixin'
+import { AnyConstructor } from './types'
 import { getClientMutationId } from './helpers'
+import { Storage } from './storage.helper'
 
 export type RelayMutationOptions = Omit<MutationOptions, 'nullable'>
 
@@ -12,6 +14,19 @@ export function RelayMutation<T>(
   return (target: Object | Function, key: string | symbol, descriptor: PropertyDescriptor) => {
     const outputType = typeFunc() as AnyConstructor
     const mutationName = options?.name ? options.name : String(key)
+
+    const inputParamData = Storage.fetchParamData({ target, key })
+    if (inputParamData) {
+      const type = inputParamData.typeFunc() as AnyConstructor
+      const input = InputMixin(type, { mutationName })
+      const argsOptions: ArgsOptions = {
+        ...options,
+        name: 'input',
+        nullable: false,
+        type: () => input
+      }
+      Args(argsOptions)(target, key, inputParamData.paramIndex)
+    }
 
     const originalMethod = descriptor.value
     descriptor.value = function(...args: any[]) {

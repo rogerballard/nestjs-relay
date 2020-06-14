@@ -6,11 +6,12 @@ import {
   Field,
   GraphQLSchemaFactory,
   Query,
-  Args
+  InputType
 } from '@nestjs/graphql'
-import { GraphQLSchema, isObjectType, GraphQLObjectType } from 'graphql'
+import { GraphQLSchema, isObjectType, GraphQLObjectType, isInputType } from 'graphql'
 import { RelayMutation } from './relay-mutation.decorator'
 import { GlobalIdScalar, ResolvedGlobalId } from '../global-id'
+import { RelayArgs } from './relay-args.decorator'
 
 @ObjectType()
 class Type {
@@ -19,6 +20,12 @@ class Type {
 
   @Field({ nullable: true })
   name?: string
+}
+
+@InputType()
+class CreateTypeInput {
+  @Field({ nullable: true })
+  name!: string
 }
 
 @ObjectType()
@@ -30,7 +37,7 @@ class CreateTypeOutput {
 @Resolver(Type)
 export class TypeResolver {
   @RelayMutation(() => CreateTypeOutput)
-  createType() {
+  createType(@RelayArgs(() => CreateTypeInput) input: CreateTypeInput) {
     return null
   }
 
@@ -61,7 +68,7 @@ describe('RelayMutation Decorator', () => {
       expect(createTypeField).toBeDefined()
     })
 
-    it.skip('should contain the `CreateTypeInput` type', () => {
+    it('should contain the `CreateTypeInput` type', () => {
       const createTypeInputType = schema.getType('CreateTypeInput')
       expect(createTypeInputType).toBeDefined()
     })
@@ -73,10 +80,10 @@ describe('RelayMutation Decorator', () => {
     })
 
     describe('`CreateTypeInput` type', () => {
-      it.skip('should contain the `clientMutationId` field', () => {
+      it('should contain the `clientMutationId` field', () => {
         const createTypeInputType = schema.getType('CreateTypeInput') as GraphQLObjectType
         expect(createTypeInputType).toBeDefined()
-        expect(isObjectType(createTypeInputType)).toBe(true)
+        expect(isInputType(createTypeInputType)).toBe(true)
 
         const clientMutationIdField = createTypeInputType.getFields()['clientMutationId']
         expect(clientMutationIdField).toBeDefined()
