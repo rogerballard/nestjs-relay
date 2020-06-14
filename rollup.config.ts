@@ -7,7 +7,7 @@ import json from 'rollup-plugin-json'
 
 const pkg = require('./package.json')
 
-const libraryName = 'nestjs-relay-tools'
+const libraryName = 'nestjs-relay'
 
 export default {
   input: `src/${libraryName}.ts`,

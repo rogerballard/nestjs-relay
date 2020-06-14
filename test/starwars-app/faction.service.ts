@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common'
-import { ResolvedGlobalId, GlobalId } from '../../src/nestjs-relay-tools'
 
 export interface FactionDTO {
   id: string

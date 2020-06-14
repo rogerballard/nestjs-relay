@@ -1,5 +1,5 @@
 import { Resolver, Query } from '@nestjs/graphql'
-import { GlobalIdFieldResolver } from '../../src/nestjs-relay-tools'
+import { GlobalIdFieldResolver } from '../../src/nestjs-relay'
 import { Faction } from './faction.type'
 import { FactionService } from './faction.service'
 

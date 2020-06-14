@@ -1,11 +1,11 @@
 {
-  "name": "nestjs-relay-tools",
+  "name": "nestjs-relay",
   "version": "0.0.0-development",
   "description": "",
   "keywords": [],
-  "main": "dist/nestjs-relay-tools.umd.js",
-  "module": "dist/nestjs-relay-tools.es5.js",
-  "typings": "dist/types/nestjs-relay-tools.d.ts",
+  "main": "dist/nestjs-relay.umd.js",
+  "module": "dist/nestjs-relay.es5.js",
+  "typings": "dist/types/nestjs-relay.d.ts",
   "files": [
     "dist"
   ],

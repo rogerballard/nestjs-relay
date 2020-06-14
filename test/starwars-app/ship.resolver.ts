@@ -1,12 +1,11 @@
 import { Resolver, Mutation, Args } from '@nestjs/graphql'
-import { GlobalIdFieldResolver, RelayMutation } from '../../src/nestjs-relay-tools'
+import { GlobalIdFieldResolver, RelayMutation } from '../../src/nestjs-relay'
 import { Ship } from './ship.type'
 import { IntroduceShipOutput } from './introduce-ship.output'
 import { IntroduceShipInput } from './introduce-ship.input'
 import { ShipService } from './ship.service'
 import { FactionService } from './faction.service'
 import { RelayArgs } from '../../src/mutation/relay-args.decorator'
-import { Faction } from './faction.type'
 
 @Resolver(Ship)
 export class ShipResolver extends GlobalIdFieldResolver(Ship) {

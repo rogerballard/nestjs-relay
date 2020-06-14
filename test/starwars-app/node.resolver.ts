@@ -5,7 +5,7 @@ import {
   ResolvedGlobalId,
   resolvedGlobalIdToString,
   resolvedGlobalIdToNumber
-} from '../../src/nestjs-relay-tools'
+} from '../../src/nestjs-relay'
 import { FactionService } from './faction.service'
 import { Faction } from './faction.type'
 import { ShipService } from './ship.service'
