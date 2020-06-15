@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory, Resolver } from '@nestjs/graphql';
 import { Node } from './node.interface';
 import { NodeFieldsDefinition } from './node.field';
-import { GlobalIdScalar } from '../global-id';
+import { GlobalIdScalar, ResolvedGlobalId } from '../global-id';
 
 @Resolver(Node)
 class NodeFieldResolver extends NodeFieldsDefinition {}
@@ -14,7 +14,7 @@ describe('NodeField', () => {
   describe('resolveNode', () => {
     describe('when not overridden', () => {
       it('should throw an error', async () => {
-        const globalId = { type: 'Type', id: '1' };
+        const globalId = new ResolvedGlobalId({ type: 'Type', id: '1' });
         try {
           resolver.resolveNode(globalId);
         } catch (error) {

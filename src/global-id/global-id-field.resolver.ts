@@ -1,10 +1,11 @@
 import { Type } from '@nestjs/common';
 import { Resolver, ResolveField, Parent, Info } from '@nestjs/graphql';
 import { GraphQLObjectType } from 'graphql';
-import { ResolvedGlobalId, typeResolvedGlobalId } from './resolved-global-id.type';
+import { GlobalId } from './global-id.type';
+import { ResolvedGlobalId, typeResolvedGlobalId } from './resolved-global-id.class';
 
 export interface ResolverParent {
-  id: string | number | ResolvedGlobalId;
+  id: GlobalId;
 }
 
 export interface ResolverInfo {
@@ -30,9 +31,15 @@ export function GlobalIdFieldResolver<T>(classRef: Type<T>): Type<GlobalIdFieldR
         case 'object':
           return parent.id;
         case 'string':
-          return { type: info.parentType.name, id: parent.id };
+          return new ResolvedGlobalId({
+            type: info.parentType.name,
+            id: parent.id,
+          });
         case 'number':
-          return { type: info.parentType.name, id: parent.id.toString() };
+          return new ResolvedGlobalId({
+            type: info.parentType.name,
+            id: parent.id.toString(),
+          });
       }
     }
   }

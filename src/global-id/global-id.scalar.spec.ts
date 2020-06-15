@@ -1,5 +1,6 @@
 import { Kind } from 'graphql';
 import { GlobalIdScalar } from './global-id.scalar';
+import { ResolvedGlobalId } from './resolved-global-id.class';
 
 describe('ID Scalar', () => {
   let scalar: GlobalIdScalar;
@@ -10,11 +11,13 @@ describe('ID Scalar', () => {
 
   describe('when a valid global id is provided', () => {
     it('should serialize correctly', () => {
-      const globalId = { type: 'Object', id: '1' };
+      const globalId = new ResolvedGlobalId({ type: 'Object', id: '1' });
       expect(scalar.serialize(globalId)).toBe('T2JqZWN0OjE=');
     });
     it('should parseValue correctly', () => {
-      expect(scalar.parseValue('T2JqZWN0OjE=')).toMatchObject({ type: 'Object', id: '1' });
+      expect(scalar.parseValue('T2JqZWN0OjE=')).toMatchObject(
+        new ResolvedGlobalId({ type: 'Object', id: '1' }),
+      );
     });
     it('should parseLiteral correctly', () => {
       expect(
@@ -22,7 +25,7 @@ describe('ID Scalar', () => {
           value: 'T2JqZWN0OjE=',
           kind: Kind.STRING,
         }),
-      ).toMatchObject({ type: 'Object', id: '1' });
+      ).toMatchObject(new ResolvedGlobalId({ type: 'Object', id: '1' }));
     });
   });
 
