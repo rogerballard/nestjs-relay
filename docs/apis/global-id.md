@@ -30,7 +30,9 @@ The `GlobalIdFieldResolver` function implements the resolver for the `id` field 
 
 ### Arguments
 
-None.
+**`classRef`**
+- Type: `Class`
+- Required: yes
 
 ### Examples
 
@@ -41,7 +43,7 @@ import { GlobalIdFieldResolver } from 'nestjs-relay'
 import { Faction } from '.'
 
 @Resolver(Faction)
-class FactionResolver extends GlobalIdFieldResolver() {}
+class FactionResolver extends GlobalIdFieldResolver(Faction) {}
 ```
 
 ## `ResolvedGlobalId`

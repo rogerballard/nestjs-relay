@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
-import { ObjectType, Field, Resolver, Query } from '@nestjs/graphql';
+import { ObjectType, Field, Resolver } from '@nestjs/graphql';
 import { Node } from '../node';
-import { ResolvedGlobalId } from './resolved-global-id.type';
+import { ResolvedGlobalId } from './resolved-global-id.class';
 import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver';
 
 @ObjectType({ implements: [Node] })
@@ -14,7 +14,7 @@ class Type implements Node {
 }
 
 @Resolver(Type)
-export class TypeResolver extends GlobalIdFieldResolver(Type) {}
+export class TypeResolver extends GlobalIdFieldResolver() {}
 
 describe('GlobalIdFieldResolver', () => {
   let resolver: TypeResolver;
@@ -31,7 +31,7 @@ describe('GlobalIdFieldResolver', () => {
     describe('when the `parent.id` is a ResolvedGlobalId', () => {
       it('should return the `parent.id` value', () => {
         const parent: ResolverParent = {
-          id: { id: '1', type: 'Type' },
+          id: new ResolvedGlobalId({ id: '1', type: 'Type' }),
         };
         const info: ResolverInfo = {
           parentType: { name: 'Type' },
@@ -39,7 +39,7 @@ describe('GlobalIdFieldResolver', () => {
 
         const result = resolver.id(parent, info);
 
-        expect(result).toEqual({ id: '1', type: 'Type' });
+        expect(result).toEqual(new ResolvedGlobalId({ id: '1', type: 'Type' }));
       });
     });
     describe('when the `parent.id` is a string', () => {
@@ -53,7 +53,7 @@ describe('GlobalIdFieldResolver', () => {
 
         const result = resolver.id(parent, info);
 
-        expect(result).toEqual({ id: '1', type: 'Type' });
+        expect(result).toEqual(new ResolvedGlobalId({ id: '1', type: 'Type' }));
       });
     });
     describe('when the `parent.id` is a number', () => {
@@ -67,7 +67,7 @@ describe('GlobalIdFieldResolver', () => {
 
         const result = resolver.id(parent, info);
 
-        expect(result).toEqual({ id: '1', type: 'Type' });
+        expect(result).toEqual(new ResolvedGlobalId({ id: '1', type: 'Type' }));
       });
     });
     describe('when the `parent.id` is another type', () => {
