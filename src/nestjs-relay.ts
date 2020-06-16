@@ -1,3 +1,3 @@
 export * from './global-id';
-export * from './mutation';
+export * from './mutation_graveyard';
 export * from './node';
