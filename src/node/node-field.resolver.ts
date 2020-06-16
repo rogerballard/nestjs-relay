@@ -1,5 +1,5 @@
 import { Query, Args, Resolver } from '@nestjs/graphql';
-import { NodeInterface, returnsNodeInterface, returnsNodeInterfaces } from './node.interface';
+import { returnsNodeInterface, returnsNodeInterfaces, NodeInterface } from './node.interface';
 import { ResolvedGlobalId, typeResolvedGlobalId, typeResolvedGlobalIds } from '../global-id';
 
 export type ResolvedNode =
