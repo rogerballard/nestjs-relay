@@ -4,7 +4,7 @@ import { ResolvedGlobalId } from '../global-id';
 @InterfaceType({
   description: 'An object with an ID',
 })
-export class Node {
+class Node {
   @Field({
     nullable: false,
     description: 'The ID of the object',
@@ -12,10 +12,12 @@ export class Node {
   id!: ResolvedGlobalId;
 }
 
-export const typeNode = () => Node;
+export const NodeInterface = Node;
 
-export const typeNodes = () => [Node];
+export const typeNodeInterface = () => NodeInterface;
 
-export const returnsNode = () => Node;
+export const typeNodeInterfaces = () => [NodeInterface];
 
-export const returnsNodes = () => [Node];
+export const returnsNodeInterface = () => NodeInterface;
+
+export const returnsNodeInterfaces = () => [NodeInterface];
