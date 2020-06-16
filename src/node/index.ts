@@ -1,2 +1,2 @@
-export * from './node-field.resolver';
-export * from './node.interface';
+export { NodeInterface } from './node.interface';
+export { NodeFieldResolver, NodeResolver } from './node-field.resolver';
