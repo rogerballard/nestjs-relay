@@ -1,15 +1,15 @@
 import { GraphQLSchema } from 'graphql';
 import { NestFactory } from '@nestjs/core';
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory, Resolver } from '@nestjs/graphql';
-import { Node } from './node.interface';
-import { NodeFieldsDefinition } from './node.field';
 import { GlobalIdScalar, ResolvedGlobalId } from '../global-id';
+import { NodeFieldResolver } from './node-field.resolver';
+import { NodeInterface } from './node.interface';
 
-@Resolver(Node)
-class NodeFieldResolver extends NodeFieldsDefinition {}
+@Resolver(NodeInterface)
+class NodeResolver extends NodeFieldResolver {}
 
 describe('NodeField', () => {
-  let resolver = new NodeFieldResolver();
+  let resolver = new NodeResolver();
 
   describe('resolveNode', () => {
     describe('when not overridden', () => {

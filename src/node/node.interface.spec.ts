@@ -1,24 +1,33 @@
-import { returnsNode, typeNode, Node, typeNodes, returnsNodes } from './node.interface';
+import {
+  NodeInterface,
+  returnsNodeInterface,
+  returnsNodeInterfaces,
+  typeNodeInterface,
+  typeNodeInterfaces,
+} from './node.interface';
 
 describe('NodeInterface', () => {
-  describe('typeNode', () => {
-    it('should return the Node class', () => {
-      expect(typeNode()).toEqual(Node);
+  describe('typeNodeInterface', () => {
+    it('should return the NodeInterface class', () => {
+      expect(typeNodeInterface()).toEqual(NodeInterface);
     });
   });
-  describe('typeNodes', () => {
-    it('should return an array of the Node class', () => {
-      expect(typeNodes()).toEqual([Node]);
+
+  describe('typeNodeInterfaces', () => {
+    it('should return an array of the NodeInterface class', () => {
+      expect(typeNodeInterfaces()).toEqual([NodeInterface]);
     });
   });
-  describe('returnsNode', () => {
-    it('should return the Node class', () => {
-      expect(returnsNode()).toEqual(Node);
+
+  describe('returnsNodeInterface', () => {
+    it('should return the NodeInterface class', () => {
+      expect(returnsNodeInterface()).toEqual(NodeInterface);
     });
   });
-  describe('returnsNodes', () => {
-    it('should return an array of the Node class', () => {
-      expect(returnsNodes()).toEqual([Node]);
+
+  describe('returnsNodeInterfaces', () => {
+    it('should return an array of the NodeInterface class', () => {
+      expect(returnsNodeInterfaces()).toEqual([NodeInterface]);
     });
   });
 });

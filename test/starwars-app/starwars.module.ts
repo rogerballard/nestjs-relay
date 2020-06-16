@@ -3,7 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { GlobalIdScalar } from '../../src/nestjs-relay';
 import { ShipService } from './ship.service';
 import { FactionService } from './faction.service';
-import { NodeFieldsResolver } from './node.resolver';
+import { NodeResolver } from './node.resolver';
 import { FactionResolver } from './faction.resolver';
 import { ShipResolver } from './ship.resolver';
 
@@ -16,7 +16,7 @@ import { ShipResolver } from './ship.resolver';
   providers: [
     FactionResolver,
     FactionService,
-    NodeFieldsResolver,
+    NodeResolver,
     ShipResolver,
     ShipService,
     GlobalIdScalar,

@@ -1,9 +1,9 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { Node, ResolvedGlobalId } from '../../src/nestjs-relay';
+import { NodeInterface, ResolvedGlobalId } from '../../src/nestjs-relay';
 import { ShipDTO } from './ship.service';
 
-@ObjectType({ implements: [Node] })
-export class Ship implements Node {
+@ObjectType({ implements: [NodeInterface] })
+export class Ship implements NodeInterface {
   constructor(props: ShipDTO) {
     Object.assign(this, props);
   }
