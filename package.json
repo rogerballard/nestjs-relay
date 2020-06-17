@@ -3,8 +3,8 @@
   "version": "0.0.0-development",
   "description": "",
   "keywords": [],
-  "main": "dist/nestjs-relay.umd.js",
-  "module": "dist/nestjs-relay.es5.js",
+  "main": "dist/nestjs-relay.cjs.js",
+  "module": "dist/nestjs-relay.esm.js",
   "typings": "dist/types/nestjs-relay.d.ts",
   "files": [
     "dist"
@@ -21,8 +21,7 @@
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-    "start": "rollup -c rollup.config.ts -w",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && typedoc --out docs --target es6 --theme minimal --mode file src",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --coverage --watch",
@@ -69,7 +68,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
+        "branches": 80,
         "functions": 95,
         "lines": 95,
         "statements": 95
@@ -123,12 +122,6 @@
     "prompt": "1.0.0",
     "replace-in-file": "3.4.4",
     "rimraf": "2.7.1",
-    "rollup": "0.68.2",
-    "rollup-plugin-commonjs": "9.3.4",
-    "rollup-plugin-json": "3.1.0",
-    "rollup-plugin-node-resolve": "3.4.0",
-    "rollup-plugin-sourcemaps": "0.6.2",
-    "rollup-plugin-typescript2": "0.27.1",
     "semantic-release": "17.0.8",
     "shelljs": "0.8.4",
     "supertest": "4.0.2",
