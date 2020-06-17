@@ -106,7 +106,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@types/graphql-relay": "0.6.0",
-    "@types/jest": "23.3.14",
+    "@types/jest": "26.0.0",
     "@types/node": "10.17.26",
     "@types/supertest": "2.0.9",
     "colors": "1.4.0",
