@@ -95,10 +95,5 @@
     "typedoc": "0.17.7",
     "typescript": "3.9.5"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "snyk": true
 }
