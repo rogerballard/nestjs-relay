@@ -1,2 +1,2 @@
 export { RelayArg, RelayArgOptions } from './relay-arg.decorator';
-export { RelayArgs, RelayArgsOptions } from './relay-args.decorator';
+export { RelayMutation, RelayMutationOptions } from './relay-mutation.decorator';

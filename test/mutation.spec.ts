@@ -2,7 +2,6 @@ import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
 import { StarWarsModule } from './starwars-app';
-import { IntroduceShipInput } from './starwars-app/introduce-ship.input';
 
 describe('Mutation', () => {
   let app: INestApplication;

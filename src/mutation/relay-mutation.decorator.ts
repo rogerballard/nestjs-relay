@@ -1,6 +1,8 @@
-import { ReturnTypeFunc, MutationOptions, Mutation, ArgsOptions, Args } from '@nestjs/graphql';
-import { AnyConstructor } from './mixins/types';
+import { ReturnTypeFunc, MutationOptions, Mutation, Args } from '@nestjs/graphql';
 import { getClientMutationId } from './utils';
+import { MetadataStorage } from './metadata-storage.class';
+import { InputArgFactory } from './input-arg';
+import { PayloadTypeFactory } from './payload-type';
 
 export type RelayMutationOptions = Omit<MutationOptions, 'nullable'>;
 
@@ -9,32 +11,10 @@ export function RelayMutation<T>(
   options?: RelayMutationOptions,
 ): MethodDecorator {
   return (target: Object | Function, key: string | symbol, descriptor: PropertyDescriptor) => {
-    const outputType = typeFunc() as AnyConstructor;
     const mutationName = options?.name ? options.name : String(key);
 
     /**
-     * Input Type
-     * -> Construct
-     * -> Register - how?
-     */
-    const inputType: AnyConstructor;
-
-    /**
-     * Payload Type
-     * -> Construct
-     * -> Register
-     */
-    const payloadType: AnyConstructor;
-    const mutationOptions: MutationOptions = {
-      ...options,
-      name: mutationName,
-      nullable: true,
-    };
-    Mutation(() => payloadType, mutationOptions)(target, key, descriptor);
-
-    /**
-     * Intercept Resolver
-     * -> Pass clientMutationId to response
+     * Resolver Interceptor
      */
     const originalMethod = descriptor.value;
     descriptor.value = function(...args: any[]) {
@@ -42,5 +22,28 @@ export function RelayMutation<T>(
       const methodResult = originalMethod.apply(this, args);
       return { ...methodResult, clientMutationId };
     };
+
+    /**
+     * Input Type
+     */
+    const params = MetadataStorage.getMethodMetadata({ target, key });
+    const { paramIndex, ...argOptions } = InputArgFactory.create({ params, mutationName });
+    const inputArgOptions = {
+      name: 'input',
+      nullable: false,
+      ...argOptions,
+    };
+    Args(inputArgOptions)(target, key, paramIndex);
+
+    /**
+     * Payload Type
+     */
+    const payloadType = PayloadTypeFactory.create({ typeFunc, mutationName });
+    const mutationOptions: MutationOptions = {
+      ...options,
+      name: mutationName,
+      nullable: true,
+    };
+    Mutation(() => payloadType, mutationOptions)(target, key, descriptor);
   };
 }

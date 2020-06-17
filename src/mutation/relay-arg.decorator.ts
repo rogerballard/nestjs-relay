@@ -10,8 +10,6 @@ export function RelayArg<T>(
   return (target: Object | Function, key: string | symbol, paramIndex: number) => {
     MetadataStorage.addMethodMetadata({
       ...options,
-      name: 'input',
-      nullable: false,
       typeFunc,
       target,
       key,

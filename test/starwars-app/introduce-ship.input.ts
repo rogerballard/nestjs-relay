@@ -1,5 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql';
-import { GlobalId, ResolvedGlobalId } from '../../src/global-id';
+import { ResolvedGlobalId } from '../../src/nestjs-relay';
 
 @InputType()
 export class IntroduceShipInput {
