@@ -37,17 +37,6 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
-  "lint-staged": {
-    "{src,test}/**/*.ts": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
   "dependencies": {
     "@nestjs/common": "^7.1.3",
     "@nestjs/core": "^7.1.3",
@@ -96,6 +85,11 @@
     "typedoc": "^0.17.7",
     "typedoc-plugin-markdown": "^2.3.1",
     "typescript": "3.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   },
   "snyk": true
 }
