@@ -1,11 +1,11 @@
 import { Test } from '@nestjs/testing';
 import { ObjectType, Field, Resolver } from '@nestjs/graphql';
-import { Node } from '../node';
 import { ResolvedGlobalId } from './resolved-global-id.class';
 import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver';
+import { NodeInterface } from '../node';
 
-@ObjectType({ implements: [Node] })
-class Type implements Node {
+@ObjectType({ implements: [NodeInterface] })
+class Type implements NodeInterface {
   @Field()
   id!: ResolvedGlobalId;
 
@@ -14,7 +14,7 @@ class Type implements Node {
 }
 
 @Resolver(Type)
-export class TypeResolver extends GlobalIdFieldResolver() {}
+export class TypeResolver extends GlobalIdFieldResolver(Type) {}
 
 describe('GlobalIdFieldResolver', () => {
   let resolver: TypeResolver;
