@@ -68,7 +68,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
+        "branches": 80,
         "functions": 95,
         "lines": 95,
         "statements": 95
@@ -104,9 +104,6 @@
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@rollup/plugin-commonjs": "^13.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.1",
-    "@rollup/plugin-typescript": "^4.1.2",
     "@types/graphql-relay": "0.6.0",
     "@types/jest": "23.3.14",
     "@types/node": "10.17.26",
@@ -125,7 +122,6 @@
     "prompt": "1.0.0",
     "replace-in-file": "3.4.4",
     "rimraf": "2.7.1",
-    "rollup": "^2.16.1",
     "semantic-release": "17.0.8",
     "shelljs": "0.8.4",
     "supertest": "4.0.2",
