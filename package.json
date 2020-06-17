@@ -21,7 +21,8 @@
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && npm run build:docs",
+    "build:docs": "typedoc --options .typedoc.js",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --coverage --watch",
@@ -92,7 +93,8 @@
     "tslint": "5.20.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-config-standard": "8.0.1",
-    "typedoc": "0.17.7",
+    "typedoc": "^0.17.7",
+    "typedoc-plugin-markdown": "^2.3.1",
     "typescript": "3.9.5"
   },
   "snyk": true
