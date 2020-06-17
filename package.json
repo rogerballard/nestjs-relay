@@ -123,7 +123,7 @@
     "prompt": "1.0.0",
     "replace-in-file": "3.4.4",
     "rimraf": "2.7.1",
-    "rollup": "0.67.4",
+    "rollup": "0.68.2",
     "rollup-plugin-commonjs": "9.3.4",
     "rollup-plugin-json": "3.1.0",
     "rollup-plugin-node-resolve": "3.4.0",
