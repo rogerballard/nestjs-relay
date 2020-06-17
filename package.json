@@ -33,7 +33,9 @@
     "semantic-release": "semantic-release",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "travis-deploy-once": "travis-deploy-once",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -97,7 +99,8 @@
     "graphql": "^15.0.0",
     "graphql-relay": "^0.6.0",
     "graphql-tools": "^6.0.7",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "snyk": "^1.342.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
@@ -143,5 +146,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "snyk": true
 }
