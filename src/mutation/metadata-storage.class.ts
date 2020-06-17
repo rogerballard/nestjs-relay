@@ -1,24 +1,27 @@
-import 'reflect-metadata';
 import { ArgsOptions, ReturnTypeFunc } from '@nestjs/graphql';
+
+const BASE_KEY = 'nestjs-relay';
+const METHOD_KEY = 'method';
+const METHOD_METADATA_KEY = `${BASE_KEY}:${METHOD_KEY}`;
 
 export interface MethodIdentifier {
   target: Object;
   key: string | symbol;
 }
 
-export type ParamData = Omit<ArgsOptions, 'name' | 'nullable' | 'type'> & {
+export type ParameterMetadata = Omit<ArgsOptions, 'type'> & {
   typeFunc: ReturnTypeFunc;
   paramIndex: number;
 };
 
-const METADATA_KEY = 'nestjs-relay:method';
-
 export class MetadataStorage {
-  static store(args: MethodIdentifier & ParamData): void {
+  static addMethodMetadata(args: MethodIdentifier & ParameterMetadata): void {
     const { target, key, ...data } = args;
-    Reflect.defineMetadata(METADATA_KEY, data, target, key);
+    const existingMetadata = MetadataStorage.getMethodMetadata({ target, key });
+    const metadata = [...existingMetadata, data];
+    Reflect.defineMetadata(METHOD_METADATA_KEY, metadata, target, key);
   }
-  static read({ target, key }: MethodIdentifier): void {
-    return Reflect.getMetadata(METADATA_KEY, target, key);
+  static getMethodMetadata({ target, key }: MethodIdentifier): ParameterMetadata[] {
+    return Reflect.getMetadata(METHOD_METADATA_KEY, target, key) || [];
   }
 }

@@ -8,7 +8,7 @@ export function RelayArgs<T>(
   options?: RelayArgsOptions,
 ): ParameterDecorator {
   return (target: Object | Function, key: string | symbol, paramIndex: number) => {
-    MetadataStorage.store({
+    MetadataStorage.addMethodMetadata({
       ...options,
       typeFunc,
       target,
