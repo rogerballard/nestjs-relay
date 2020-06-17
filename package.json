@@ -21,8 +21,7 @@
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "start": "rollup -c rollup.config.ts -w",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && typedoc --out docs --target es6 --theme minimal --mode file src",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --coverage --watch",
