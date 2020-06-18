@@ -25,5 +25,6 @@ jobs:
         run: npm run build
       - name: Test
         run: npm run test
-        
+      - name: Report Coverage
+        uses: coverallsapp/github-action@v1.1.1
       
