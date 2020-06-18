@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,18 +15,19 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        
       - name: Setup Node Environment
         uses: actions/setup-node@v1.4.2
         with:
           node-version: ${{ matrix.node-version }}
-      
       - name: Install Dependencies  
         run: npm ci
-        
       - name: Build
         run: npm run build
-      
       - name: Test
         run: npm run test
+      - name: Report Coverage
+        uses: coverallsapp/github-action@v1.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}      
       
+    
