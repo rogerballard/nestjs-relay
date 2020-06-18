@@ -26,8 +26,6 @@
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --coverage --watch",
-    "semantic-release": "semantic-release",
-    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
   },
   "dependencies": {
@@ -63,7 +61,7 @@
     "prompt": "1.0.0",
     "replace-in-file": "6.1.0",
     "rimraf": "3.0.2",
-    "semantic-release": "17.0.8",
+    "semantic-release": "^17.0.8",
     "supertest": "4.0.2",
     "ts-jest": "26.1.0",
     "tsconfig-paths": "3.9.0",
