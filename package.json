@@ -71,7 +71,7 @@
     "prettier": "1.19.1",
     "prompt": "1.0.0",
     "replace-in-file": "3.4.4",
-    "rimraf": "2.7.1",
+    "rimraf": "3.0.2",
     "semantic-release": "17.0.8",
     "shelljs": "0.8.4",
     "supertest": "4.0.2",
