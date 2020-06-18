@@ -70,7 +70,7 @@
     "lodash.camelcase": "4.3.0",
     "prettier": "1.19.1",
     "prompt": "1.0.0",
-    "replace-in-file": "3.4.4",
+    "replace-in-file": "6.1.0",
     "rimraf": "3.0.2",
     "semantic-release": "17.0.8",
     "shelljs": "0.8.4",
