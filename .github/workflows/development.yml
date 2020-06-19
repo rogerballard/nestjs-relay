@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: development
 
 on:
   push:
@@ -28,6 +28,22 @@ jobs:
       - name: Report Coverage
         uses: coverallsapp/github-action@v1.1.1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}      
+          github-token: ${{ secrets.GITHUB_TOKEN }}    
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        with:
+          semantic_version: 17
+          extra_plugins: |
+            @semantic-release/changelog@5
+            @semantic-release/git@9         
       
     
