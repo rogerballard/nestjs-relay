@@ -1,4 +1,4 @@
-name: Development
+name: development
 
 on:
   push:
@@ -42,6 +42,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           semantic_version: 17
+          extra_plugins: |
+            @semantic-release/changelog@5
+            @semantic-release/git@9
           dry_run: true          
       
     
