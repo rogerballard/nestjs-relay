@@ -34,7 +34,7 @@ npm i github:rogerballard/nestjs-relay
 ### Guides
 
 - [Global Object Identification](docs/global-object-identification.md)
-- Mutations *(in progress)*
+- [Mutations](docs/mutations.md)
 - Connections *(coming soon)*
 
 ### Documentation

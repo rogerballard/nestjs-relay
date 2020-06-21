@@ -1,8 +1,8 @@
-# Implementing the Global Object Identification specification
+# Global Object Identification
 
-Resources:
-- [Global Object Identification | graphql.org](https://graphql.org/learn/global-object-identification/)
-- [Specification | relay.dev](https://relay.dev/graphql/objectidentification.htm)
+For background information on what the Global Object Identification, see the following resources:
+- [Global Object Identification - graphql.org](https://graphql.org/learn/global-object-identification/)
+- [Specification - relay.dev](https://relay.dev/graphql/objectidentification.htm)
 
 ## Including the global id scalar
 
