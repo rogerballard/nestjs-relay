@@ -10,6 +10,10 @@ A set of tools to help you implement Relay-compliant GraphQL APIs with NestJS v7
 
 ## Getting Started
 
+```bash
+npm i nestjs-relay
+```
+
 ## Documentation
 
 **Guides**
