@@ -3,4 +3,5 @@ module.exports = {
   excludeNotExported: true,
   inputFiles: ['src'],
   out: 'public',
+  readme: 'none'
 };
