@@ -8,13 +8,28 @@ A set of tools to help you implement Relay-compliant GraphQL APIs with NestJS v7
 [![Coveralls](https://img.shields.io/coveralls/github/rogerballard/nestjs-relay)](https://coveralls.io/github/rogerballard/nestjs-relay)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-## Getting Started
+## Features
+- ID scalar that automatically handles global id transformations
+- The `Node` interface to implement in your schema types
+- Resolvers for the `node` and `nodes` root fields
+- Mutation decorator with automatic `Input` & `Payload` type generation
 
+### Coming Soon
+- Connections *([see #31](https://github.com/rogerballard/nestjs-relay/issues/31))*
+
+## Installation
+
+Install from NPM:
 ```bash
 npm i nestjs-relay
 ```
 
-## Documentation
+Or from GitHub Release:
+```bash
+npm i github:rogerballard/nestjs-relay
+```
+
+## Getting Started
 
 **Guides**
 - [Global Object Identification](docs/global-object-identification.md)
