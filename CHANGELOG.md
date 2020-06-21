@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/rogerballard/nestjs-relay/compare/v1.1.0...v2.0.0) (2020-06-21)
+
+
+### Code Refactoring
+
+* **relay arg decorator:** rename relay arg to input arg ([916525b](https://github.com/rogerballard/nestjs-relay/commit/916525bb492f9d757c8294e05c723e71a362fe57))
+
+
+### BREAKING CHANGES
+
+* **relay arg decorator:** the RelayArg decorator is now named InputArg
+
 # [1.1.0](https://github.com/rogerballard/nestjs-relay/compare/v1.0.2...v1.1.0) (2020-06-21)
 
 
