@@ -5,5 +5,6 @@ module.exports = {
   excludeNotExported: true,
   inputFiles: ['src'],
   out: 'public',
-  theme: 'minimal'
+  plugin: 'typedoc-neo-theme',
+  theme: './node_modules/typedoc-neo-theme/bin/default',
 };

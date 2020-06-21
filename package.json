@@ -39,7 +39,8 @@
     "graphql": "^15.0.0",
     "graphql-relay": "^0.6.0",
     "graphql-tools": "^6.0.7",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "typedoc-neo-theme": "^1.0.8"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
