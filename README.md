@@ -17,7 +17,9 @@ A set of tools to help you implement Relay-compliant GraphQL APIs with NestJS v7
 ### Coming Soon
 - Connections *([see #31](https://github.com/rogerballard/nestjs-relay/issues/31))*
 
-## Installation
+## Getting Started
+
+### Installation
 
 Install from NPM:
 ```bash
@@ -29,12 +31,12 @@ Or from GitHub Release:
 npm i github:rogerballard/nestjs-relay
 ```
 
-## Getting Started
+### Guides
 
-**Guides**
 - [Global Object Identification](docs/global-object-identification.md)
 - Mutations *(in progress)*
 - Connections *(coming soon)*
 
-**API**
+### Documentation
+
 - [Full API](https://rogerballard.github.io/nestjs-relay/)
