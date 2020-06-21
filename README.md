@@ -1,6 +1,6 @@
 # NestJS Relay
 
-A set of tools to help you implement Relay-compliant GraphQL APIs with NestJS v7.
+A batteries-included toolkit for building Relay-compliant GraphQL APIs with NestJS v7.
 
 [![npm](https://img.shields.io/npm/v/nestjs-relay)](https://www.npmjs.com/package/nestjs-relay)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/rogerballard/nestjs-relay/development)
