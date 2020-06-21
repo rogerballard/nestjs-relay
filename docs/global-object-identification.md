@@ -91,7 +91,7 @@ class NodeResolver extends NodeFieldResolver() {
 > console.log(resolvedGlobalId.toNumber()) // 1
 > ```
 
-## Next Steps
+## Conclusion
 
 At this point, we have:
 - a schema that complies with the Global Object Identification specification
