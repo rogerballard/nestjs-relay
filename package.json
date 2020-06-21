@@ -1,10 +1,10 @@
 {
   "name": "nestjs-relay",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/nestjs-relay.cjs.js",
-  "module": "dist/nestjs-relay.esm.js",
+  "main": "dist/cjs/nestjs-relay.js",
+  "module": "dist/esm/nestjs-relay.js",
   "typings": "dist/types/nestjs-relay.d.ts",
   "files": [
     "dist"
@@ -21,7 +21,7 @@
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && npm run build:docs",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "build:docs": "typedoc --options .typedoc.js",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
