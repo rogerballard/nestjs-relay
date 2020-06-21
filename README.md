@@ -9,10 +9,10 @@ A set of tools to help you implement Relay-compliant GraphQL APIs with NestJS v7
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Features
-- ID scalar that automatically handles global id transformations
+- `ID` scalar that automatically handles global id transformations
 - The `Node` interface to implement in your schema types
 - Resolvers for the `node` and `nodes` root fields
-- Mutation decorator with automatic `Input` & `Payload` type generation
+- Automatic `Input` and `Payload` type generation for mutations
 
 ### Coming Soon
 - Connections *([see #31](https://github.com/rogerballard/nestjs-relay/issues/31))*
