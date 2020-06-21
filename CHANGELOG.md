@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/rogerballard/nestjs-relay/compare/v1.0.2...v1.1.0) (2020-06-21)
+
+
+### Features
+
+* **snyk:** add snyk scripts ([85dd706](https://github.com/rogerballard/nestjs-relay/commit/85dd7069505c76dac2e7a5d63d29fd93d57c06b6))
+
 ## [1.0.2](https://github.com/rogerballard/nestjs-relay/compare/v1.0.1...v1.0.2) (2020-06-21)
 
 
