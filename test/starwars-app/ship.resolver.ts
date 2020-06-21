@@ -1,5 +1,5 @@
 import { Resolver } from '@nestjs/graphql';
-import { GlobalIdFieldResolver, RelayMutation, RelayArg } from '../../src/nestjs-relay';
+import { GlobalIdFieldResolver, RelayMutation, InputArg } from '../../src/nestjs-relay';
 import { Ship } from './ship.type';
 import { IntroduceShipOutput } from './introduce-ship.output';
 import { IntroduceShipInput } from './introduce-ship.input';
@@ -16,7 +16,7 @@ export class ShipResolver extends GlobalIdFieldResolver(Ship) {
     name: 'introduceShip',
   })
   introduceShip(
-    @RelayArg(() => IntroduceShipInput) input: IntroduceShipInput,
+    @InputArg(() => IntroduceShipInput) input: IntroduceShipInput,
   ): IntroduceShipOutput {
     const ship = this.shipService.createShip(input.shipName, input.factionId.id);
     const faction = this.factionService.getFaction(input.factionId.id);

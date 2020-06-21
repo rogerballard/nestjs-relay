@@ -38,21 +38,21 @@ export class BuildShipInput {
 }
 ```
 
-Then we can use the `RelayArg` decorator in the mutation declaration, and the `Input` type will be created for us.
+Then we can use the `InputArg` decorator in the mutation declaration, and the `Input` type will be created for us.
 
 ```typescript
-import { RelayMutation, RelayArg } from 'nestjs-relay'
+import { RelayMutation, InputArg } from 'nestjs-relay'
 
 @Resolver(Ship)
 export class ShipResolver {
   @RelayMutation(() => Ship)
-  buildShip(@RelayArg(() => BuildShipInput) input: BuildShipInput) {
+  buildShip(@InputArg(() => BuildShipInput) input: BuildShipInput) {
     //
   }
 }
 ```
 
-> Note: use the `RelayArg` decorator - rather than the `Args` decorator from `nestjs/graphql` - to ensure that the schema complies with the specification.
+> Note: use the `InputArg` decorator - rather than the `Args` decorator from `nestjs/graphql` - to ensure that the schema complies with the specification.
 
 ## Conclusion
 

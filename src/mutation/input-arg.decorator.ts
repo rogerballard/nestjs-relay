@@ -1,11 +1,11 @@
 import { ArgsOptions, ReturnTypeFunc } from '@nestjs/graphql';
 import { MetadataStorage } from './metadata-storage.class';
 
-export type RelayArgOptions = Omit<ArgsOptions, 'name' | 'nullable' | 'type' | 'defaultValue'>;
+export type InputArgOptions = Omit<ArgsOptions, 'name' | 'nullable' | 'type' | 'defaultValue'>;
 
-export function RelayArg<T>(
+export function InputArg<T>(
   typeFunc: ReturnTypeFunc,
-  options?: RelayArgOptions,
+  options?: InputArgOptions,
 ): ParameterDecorator {
   return (target: Object | Function, key: string | symbol, paramIndex: number) => {
     MetadataStorage.addMethodMetadata({
