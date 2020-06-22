@@ -7,7 +7,8 @@ export function InputArg<T>(
   typeFunc: ReturnTypeFunc,
   options?: InputArgOptions,
 ): ParameterDecorator {
-  return (target: Record<string, any>, key: string | symbol, paramIndex: number) => {
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  return (target: Object, key: string | symbol, paramIndex: number) => {
     MetadataStorage.addMethodMetadata({
       ...options,
       typeFunc,
