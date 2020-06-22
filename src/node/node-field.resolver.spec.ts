@@ -9,7 +9,7 @@ import { NodeInterface } from './node.interface';
 class NodeResolver extends NodeFieldResolver {}
 
 describe('NodeField', () => {
-  let resolver = new NodeResolver();
+  const resolver = new NodeResolver();
 
   describe('resolveNode', () => {
     describe('when not overridden', () => {

@@ -22,7 +22,7 @@ export class FactionService {
   ];
 
   public getFaction(id: string) {
-    return this.factions.find(faction => faction.id === id);
+    return this.factions.find((faction) => faction.id === id);
   }
 
   public getRebels() {
@@ -34,7 +34,7 @@ export class FactionService {
   }
 
   public assignShip(factionId: string, shipId: number) {
-    const factionIndex = this.factions.findIndex(faction => faction.id === factionId);
+    const factionIndex = this.factions.findIndex((faction) => faction.id === factionId);
     this.factions[factionIndex].ships.push(shipId);
   }
 }

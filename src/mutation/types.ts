@@ -1,4 +1,4 @@
-export type AnyConstructor<T = {}> = new (...args: any[]) => T;
+export type AnyConstructor<T = Record<string, unknown>> = new (...args: any[]) => T;
 
 export type AnyFunction<A = any> = (...input: any[]) => A;
 

@@ -1,4 +1,4 @@
-import { ReturnTypeFunc, MutationOptions } from '@nestjs/graphql';
+import { ReturnTypeFunc } from '@nestjs/graphql';
 import { AnyConstructor } from '../types';
 import { PayloadMixin } from './payload.mixin';
 

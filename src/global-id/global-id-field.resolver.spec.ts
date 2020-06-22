@@ -76,9 +76,8 @@ describe('GlobalIdFieldResolver', () => {
           parentType: { name: 'Type' },
         };
 
-        let result;
         try {
-          result = resolver.id(null, info);
+          resolver.id(null, info);
         } catch (error) {
           expect(error).toEqual(
             new Error(`Cannot resolve id when 'parent' or 'parent.id' is null`),

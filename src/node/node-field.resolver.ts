@@ -16,6 +16,7 @@ export interface NodeResolver {
 
 @Resolver(NodeInterface)
 export class NodeFieldResolver implements NodeResolver {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   resolveNode(id: ResolvedGlobalId): ResolvedNode {
     throw new Error('Method not implemented.');
   }
@@ -51,6 +52,6 @@ export class NodeFieldResolver implements NodeResolver {
     })
     ids: ResolvedGlobalId[],
   ): Promise<ResolvedNode[]> {
-    return Promise.all(ids.map(id => Promise.resolve(this.resolveNode(id))));
+    return Promise.all(ids.map((id) => Promise.resolve(this.resolveNode(id))));
   }
 }

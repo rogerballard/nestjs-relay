@@ -48,7 +48,7 @@ export class ShipService {
   private nextShipId = 9;
 
   public getShip(id: number) {
-    return this.ships.find(ship => ship.id === id);
+    return this.ships.find((ship) => ship.id === id);
   }
 
   public createShip(name: string, factionId: string) {

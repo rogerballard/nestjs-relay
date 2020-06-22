@@ -11,7 +11,7 @@ describe('MetadataStorage', () => {
   describe('addMethodMetadata', () => {
     it('should add and fetch method metadata', () => {
       MetadataStorage.addMethodMetadata({
-        target: Calculator,
+        target: Calculator as any,
         key: 'add',
         paramIndex: 0,
         defaultValue: 1,
@@ -20,7 +20,7 @@ describe('MetadataStorage', () => {
       });
 
       const metadata = MetadataStorage.getMethodMetadata({
-        target: Calculator,
+        target: Calculator as any,
         key: 'add',
       });
 

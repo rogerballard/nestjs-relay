@@ -7,7 +7,7 @@ export function InputArg<T>(
   typeFunc: ReturnTypeFunc,
   options?: InputArgOptions,
 ): ParameterDecorator {
-  return (target: Object | Function, key: string | symbol, paramIndex: number) => {
+  return (target: Record<string, any>, key: string | symbol, paramIndex: number) => {
     MetadataStorage.addMethodMetadata({
       ...options,
       typeFunc,

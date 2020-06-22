@@ -10,14 +10,14 @@ export function RelayMutation<T>(
   typeFunc: ReturnTypeFunc,
   options?: RelayMutationOptions,
 ): MethodDecorator {
-  return (target: Object | Function, key: string | symbol, descriptor: PropertyDescriptor) => {
+  return (target: Record<string, any>, key: string | symbol, descriptor: PropertyDescriptor) => {
     const mutationName = options?.name ? options.name : String(key);
 
     /**
      * Resolver Interceptor
      */
     const originalMethod = descriptor.value;
-    descriptor.value = function(...args: any[]) {
+    descriptor.value = function (...args: any[]) {
       const clientMutationId = getClientMutationId(args);
       const methodResult = originalMethod.apply(this, args);
       return { ...methodResult, clientMutationId };

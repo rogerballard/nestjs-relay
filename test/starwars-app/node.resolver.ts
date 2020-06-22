@@ -13,12 +13,14 @@ export class NodeResolver extends NodeFieldResolver {
 
   resolveNode(resolvedGlobalId: ResolvedGlobalId) {
     switch (resolvedGlobalId.type) {
-      case 'Faction':
+      case 'Faction': {
         const faction = this.factionService.getFaction(resolvedGlobalId.toString());
         return faction ? new Faction(faction) : null;
-      case 'Ship':
+      }
+      case 'Ship': {
         const ship = this.shipService.getShip(resolvedGlobalId.toNumber());
         return ship ? new Ship(ship) : null;
+      }
       default:
         return null;
     }

@@ -1,11 +1,12 @@
 import { ArgsOptions, ReturnTypeFunc } from '@nestjs/graphql';
+import { AnyConstructor } from './types';
 
 const BASE_KEY = 'nestjs-relay';
 const METHOD_KEY = 'method';
 const METHOD_METADATA_KEY = `${BASE_KEY}:${METHOD_KEY}`;
 
 export interface MethodIdentifier {
-  target: Object;
+  target: AnyConstructor;
   key: string | symbol;
 }
 
