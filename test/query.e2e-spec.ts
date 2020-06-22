@@ -30,9 +30,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
@@ -56,9 +54,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
@@ -83,9 +79,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
@@ -109,9 +103,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
@@ -138,9 +130,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
@@ -167,9 +157,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
@@ -200,9 +188,7 @@ describe('Object Identification', () => {
         }
       `;
 
-      const response = await request(app.getHttpServer())
-        .post('/graphql')
-        .send({ query });
+      const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({

@@ -12,6 +12,6 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js'],
   roots: ['src', 'test'],
   testEnvironment: 'node',
-  testRegex: '.spec.ts$',
+  testRegex: '(.spec|.e2e-spec).ts$',
   transform: { '.ts': 'ts-jest' }
 }
