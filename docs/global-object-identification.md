@@ -48,6 +48,16 @@ class ShipResolver extends GlobalIdFieldResolver(Ship) {}
 
 > Note: the default behaviour of the `id` field resolver will serialize a global id from either a `number`, `string` or `ResolvedGlobalId`.
 
+The specification requires the `id` field to be named `'id'` and to be non nullable, however you may provide other options for the `id` field that will be passed in to the underlying `FieldResolver` declaration.
+
+Currently, this will allow you to specify the `complexity` option. For more information, please see the [NestJS GraphQL Complexity documentation](https://docs.nestjs.com/graphql/complexity#field-level-complexity)
+
+```typescript
+@Resolver(Ship)
+class ShipResolver extends GlobalIdFieldResolver(Ship, { complexity: 1 }) {}
+```
+
+
 ## Implementing the node field resolver
 
 Now that one of the schema types has implmented the node interface, we can implement the node root field. The `NodeFieldResolver` can be extended to implement the registering of the `node` and `nodes` root fields.

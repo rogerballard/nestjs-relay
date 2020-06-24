@@ -1,8 +1,9 @@
 import { Type } from '@nestjs/common';
-import { Resolver, ResolveField, Parent, Info } from '@nestjs/graphql';
+import { Resolver, Parent, Info } from '@nestjs/graphql';
 import { GraphQLObjectType } from 'graphql';
 import { GlobalId } from './global-id.type';
-import { ResolvedGlobalId, typeResolvedGlobalId } from './resolved-global-id.class';
+import { ResolvedGlobalId } from './resolved-global-id.class';
+import { GlobalIdField, GlobalIdFieldOptions } from './global-id.field';
 
 export interface ResolverParent {
   id: GlobalId;
@@ -16,13 +17,15 @@ export interface GlobalIdFieldResolver {
   id(parent: ResolverParent | null, info: ResolverInfo): ResolvedGlobalId;
 }
 
-export function GlobalIdFieldResolver<T>(classRef: Type<T>): Type<GlobalIdFieldResolver> {
+export function GlobalIdFieldResolver<T>(
+  classRef: Type<T>,
+  idFieldOptions?: GlobalIdFieldOptions,
+): Type<GlobalIdFieldResolver> {
+  const globalIdFieldOptions = idFieldOptions || {};
+
   @Resolver(classRef, { isAbstract: true })
   abstract class GlobalIdFieldResolverHost {
-    @ResolveField(typeResolvedGlobalId, {
-      name: 'id',
-      nullable: false,
-    })
+    @GlobalIdField(globalIdFieldOptions)
     id(@Parent() parent: ResolverParent, @Info() info: ResolverInfo): ResolvedGlobalId {
       if (!parent || !parent.id) {
         throw new Error(`Cannot resolve id when 'parent' or 'parent.id' is null`);

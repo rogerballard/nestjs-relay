@@ -3,6 +3,7 @@ import { ObjectType, Field, Resolver } from '@nestjs/graphql';
 import { ResolvedGlobalId } from './resolved-global-id.class';
 import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver';
 import { NodeInterface } from '../node';
+import * as GlobalIdFieldModule from './global-id.field';
 
 @ObjectType({ implements: [NodeInterface] })
 class Type implements NodeInterface {
@@ -83,6 +84,31 @@ describe('GlobalIdFieldResolver', () => {
             new Error(`Cannot resolve id when 'parent' or 'parent.id' is null`),
           );
         }
+      });
+    });
+  });
+
+  describe('id field options', () => {
+    const spy = jest.spyOn(GlobalIdFieldModule, 'GlobalIdField');
+
+    beforeEach(() => {
+      jest.clearAllMocks();
+    });
+
+    describe('when the id field options are provided', () => {
+      it('should be passed to the GlobalIdField options', () => {
+        GlobalIdFieldResolver(Type, { complexity: 1 });
+
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith({ complexity: 1 });
+      });
+    });
+    describe('when the id field options are not provided', () => {
+      it('should not be passed to the GlobalIdField options', () => {
+        GlobalIdFieldResolver(Type);
+
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith({});
       });
     });
   });
