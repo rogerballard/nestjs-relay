@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/rogerballard/nestjs-relay/compare/v2.0.0...v2.1.0) (2020-06-24)
+
+
+### Features
+
+* **global id field resolver:** add optional id field options argument ([#55](https://github.com/rogerballard/nestjs-relay/issues/55)) ([0da626f](https://github.com/rogerballard/nestjs-relay/commit/0da626f776f8fb1d2fb0316bbbce902fd73bd19b))
+
 # [2.0.0](https://github.com/rogerballard/nestjs-relay/compare/v1.1.0...v2.0.0) (2020-06-21)
 
 
