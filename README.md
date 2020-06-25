@@ -40,3 +40,7 @@ npm i github:rogerballard/nestjs-relay
 ### Documentation
 
 - [Full API](https://rogerballard.github.io/nestjs-relay/)
+
+## Contributing
+
+Please see the [contribution guidelines](CONTRIBUTING.md) and the [code of conduct](code-of-conduct.md).
