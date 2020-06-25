@@ -54,6 +54,16 @@ You can submit an issue using one of the following templates:
 
 ### Submitting a Pull Request
 
+Before you submit a pull request (PR), please search the [open and closed PRs](https://github.com/rogerballard/nestjs-relay/pulls?q=is%3Apr) that relate to your submission. This will help you to avoid duplicating effort which may be better applied to contributing to an ongoing pull request.
+
+1. [Fork the repository](https://github.com/rogerballard/nestjs-relay/fork)
+2. Create your patch, including appropriate test cases.
+3. Commit your changes following the [commit message rules](#commit-message-rules).
+4. Run the test suite by running the `test` script.
+5. Push your branch to GitHub.
+6. In GitHub, submit a pull request to the `master` branch.
+7. Add a helpful description and link to a related issue (if applicable).
+
 ## Commit Message Rules
 
 This project has very precise rules on how our git commit messages can be formatted. These rules lead to more readable messages that are easy to follow when looking through the project history. The consistent message format allows us to generate the [changelog](CHANGELOG.md) and automatically handle releases.
