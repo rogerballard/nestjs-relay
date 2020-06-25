@@ -1,10 +1,35 @@
-# Contributing to NestJS Relay
+# Contributing
 
-## Found a Bug?
+:tada: :raised_hands: First off, thanks for taking the time to contribute! :raised_hands: :tada:
+
+The following is a set of guidelines for contributing to NestJS Relay.
+
+**Table Of Contents**
+- [Contributing](#contributing)
+  - [Code of Conduct](#code-of-conduct)
+  - [Reporting Bugs](#reporting-bugs)
+  - [Requesting Enhancements](#requesting-enhancements)
+  - [Submission Guidelines](#submission-guidelines)
+    - [Submitting an Issue](#submitting-an-issue)
+    - [Submitting a Pull Request](#submitting-a-pull-request)
+  - [Commit Message Rules](#commit-message-rules)
+    - [Commit Message Format](#commit-message-format)
+      - [Samples](#samples)
+      - [Type](#type)
+      - [Subject](#subject)
+      - [Body](#body)
+      - [Revert](#revert)
+      - [Footer](#footer)
+
+## Code of Conduct
+
+This project and everyone participating it is governed by the [Code of Conduct](code-of-conduct.md). By participating, you are expected to uphold this code. Please report unacceptable behaviour to [hello@rogerballard.dev](mailto:hello@rogerballard.dev).
+
+## Reporting Bugs
 
 If you find a bug in this project, you can help by [submitting an issue](#submitting-an-issue) to the GitHub repository. Even better, you can [submit a pull request](#submitting-a-pull-request) with a fix.
 
-## Missing a Feature?
+## Requesting Enhancements
 
 You can *request* a new feature by submitting an issue to the GitHub repository. If you would like to implement a new feature, please submit an issue with a proposal for your work *first*, so that we can be sure that we can use it.
 
