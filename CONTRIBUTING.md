@@ -4,7 +4,7 @@
 
 The following is a set of guidelines for contributing to NestJS Relay.
 
-**Table Of Contents**
+**Contents**
 - [Contributing](#contributing)
   - [Code of Conduct](#code-of-conduct)
   - [Reporting Bugs](#reporting-bugs)
@@ -41,6 +41,16 @@ When requesting a feature, please consider the scope of the feature:
 ## Submission Guidelines
 
 ### Submitting an Issue
+
+Before you submit an issue, please search the [issue tracker](https://github.com/rogerballard/nestjs-relay/issues) for whether your problem or suggestion already exists, and the discussion might inform you of workarounds readily available.
+
+We want to fix all the issues as soon as possible, but before fixing a bug we need to reproduce and confirm it. In order to reproduce bugs, we will systematically ask you to provide a minimal preproduction scenario using a repository, Gist, or codesandbox. Having a live, reproducible scenario gives us a wealth of important information without going back and forth with you.
+
+Unfortunately, we are not able to investigate/fix bugs without a minimap reproduction, so if we don't hear back from you, your issue will eventually be closed.
+
+You can submit an issue using one of the following templates:
+- [Bug report](https://github.com/rogerballard/nestjs-relay/issues/new?assignees=&labels=&template=bug_report.md&title=)
+- [Feature request](https://github.com/rogerballard/nestjs-relay/issues/new?assignees=&labels=&template=feature_request.md&title=)
 
 ### Submitting a Pull Request
 
