@@ -2,7 +2,16 @@
 
 ## Found a Bug?
 
+If you find a bug in this project, you can help by [submitting an issue](#submitting-an-issue) to the GitHub repository. Even better, you can [submit a pull request](#submitting-a-pull-request) with a fix.
+
 ## Missing a Feature?
+
+You can *request* a new feature by submitting an issue to the GitHub repository. If you would like to implement a new feature, please submit an issue with a proposal for your work *first*, so that we can be sure that we can use it.
+
+When requesting a feature, please consider the scope of the feature:
+
+- For **major features**, first submit an issue and outline your proposal so that it can be discussed. This will also allow us to better coordinate efforts, prevent duplication of work, and help you to build the change in a way that it can be successfully accepted into the project. For your issue name, please prefix your proposal with `[discussion]`, for example `'[discussion]: your feature idea'`.
+- **Small features** can be crafted and directly submitted as a pull request.
 
 ## Submission Guidelines
 
