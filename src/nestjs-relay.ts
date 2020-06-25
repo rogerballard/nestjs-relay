@@ -1,2 +1,2 @@
-export * from './global-object-identification';
+export * from './global-id';
 export * from './mutation';
