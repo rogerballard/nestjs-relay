@@ -14,7 +14,7 @@ The following is a set of guidelines for contributing to NestJS Relay.
     - [Submitting a Pull Request](#submitting-a-pull-request)
   - [Commit Message Rules](#commit-message-rules)
     - [Commit Message Format](#commit-message-format)
-      - [Samples](#samples)
+      - [Examples](#examples)
       - [Type](#type)
       - [Subject](#subject)
       - [Body](#body)
@@ -68,13 +68,13 @@ Before you submit a pull request (PR), please search the [open and closed PRs](h
 
 This project has very precise rules on how our git commit messages can be formatted. These rules lead to more readable messages that are easy to follow when looking through the project history. The consistent message format allows us to generate the [changelog](CHANGELOG.md) and automatically handle releases.
 
-This project uses the [Commitizen CLI](http://commitizen.github.io/cz-cli/) to help maintainers and contributors to follow the commit message rules with a useful command-line prompt. If you do not have the Commitizen CLI installed, you can use the handy `commit` script to ensure that your commit message is acceptable.
+This project uses the [Commitizen CLI](http://commitizen.github.io/cz-cli/) to help maintainers and contributors to follow the commit message rules with a useful command-line prompt. The repository is configured to start the Commitizen prompt whenever the git `prepare-commit-msg` hook is triggered, such as from running `git commit` in your terminal.
 
 Please familiarise yourself with the format below.
 
 ### Commit Message Format
 
-Each commit message consists of a **header**, a **body** and a **footer**. The header has a special format that includes a **type**, a **scope** and a **subject**:
+Each commit message consists of a **header**, a **body** and a **footer**. The **header** has a special format that includes a **type**, a **scope** and a **subject**:
 
 ```
 <type>(<scope>): <subject>
@@ -84,13 +84,13 @@ Each commit message consists of a **header**, a **body** and a **footer**. The h
 <footer>
 ```
 
-The **header** is mandatory and the scope of the header is optional.
+The **header** is mandatory and the **scope** of the header is optional.
 
 Any line of the commit message cannot be longer 100 characters. This allows the message to be easier to read on GitHub as well as in various git tools.
 
 The **footer** should contain a closing reference to an issue if any.
 
-#### Samples
+#### Examples
 
 ```
 feat(global id field resolver): add optional id field options argument

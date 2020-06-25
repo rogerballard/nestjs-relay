@@ -23,7 +23,6 @@
     "prebuild": "rimraf dist",
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "build:docs": "typedoc --options .typedoc.js",
-    "commit": "npx git-cz",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --coverage --watch",
