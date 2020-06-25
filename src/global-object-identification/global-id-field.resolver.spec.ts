@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import { ObjectType, Field, Resolver } from '@nestjs/graphql';
 import { ResolvedGlobalId } from './resolved-global-id.class';
 import { GlobalIdFieldResolver, ResolverParent, ResolverInfo } from './global-id-field.resolver';
-import { NodeInterface } from '../node';
+import { NodeInterface } from './node.interface';
 import * as GlobalIdFieldModule from './global-id.field';
 
 @ObjectType({ implements: [NodeInterface] })

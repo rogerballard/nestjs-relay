@@ -1,9 +1,10 @@
 import { GraphQLSchema } from 'graphql';
 import { NestFactory } from '@nestjs/core';
 import { GraphQLSchemaBuilderModule, GraphQLSchemaFactory, Resolver } from '@nestjs/graphql';
-import { GlobalIdScalar, ResolvedGlobalId } from '../global-id';
 import { NodeFieldResolver } from './node-field.resolver';
 import { NodeInterface } from './node.interface';
+import { ResolvedGlobalId } from './resolved-global-id.class';
+import { GlobalIdScalar } from './global-id.scalar';
 
 @Resolver(NodeInterface)
 class NodeResolver extends NodeFieldResolver {}
