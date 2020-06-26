@@ -5,7 +5,7 @@
   "keywords": [],
   "main": "dist/cjs/nestjs-relay.js",
   "module": "dist/esm/nestjs-relay.js",
-  "typings": "dist/types/nestjs-relay.d.ts",
+  "typings": "dist/cjs/nestjs-relay.d.ts",
   "files": [
     "dist"
   ],
