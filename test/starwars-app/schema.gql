@@ -44,7 +44,7 @@ type ShipEdge {
 }
 
 type ShipConnection {
-  edges: [ShipEdge!]!
+  edges: [ShipEdge]
   pageInfo: PageInfo!
 }
 
