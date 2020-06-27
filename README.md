@@ -43,4 +43,4 @@ npm i github:rogerballard/nestjs-relay
 
 ## Contributing
 
-Please see the [contribution guidelines](CONTRIBUTING.md) and the [code of conduct](code-of-conduct.md).
+Please see the [contribution guidelines](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md).

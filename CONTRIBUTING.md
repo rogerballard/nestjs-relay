@@ -23,7 +23,7 @@ The following is a set of guidelines for contributing to NestJS Relay.
 
 ## Code of Conduct
 
-This project and everyone participating it is governed by the [Code of Conduct](code-of-conduct.md). By participating, you are expected to uphold this code. Please report unacceptable behaviour to [hello@rogerballard.dev](mailto:hello@rogerballard.dev).
+This project and everyone participating it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behaviour to [hello@rogerballard.dev](mailto:hello@rogerballard.dev).
 
 ## Reporting Bugs
 
