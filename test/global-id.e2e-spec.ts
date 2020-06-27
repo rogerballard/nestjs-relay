@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
 import { StarWarsModule } from './starwars-app';
 
-describe('Object Identification', () => {
+describe('Global Identification', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
