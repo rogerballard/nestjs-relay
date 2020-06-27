@@ -9,18 +9,11 @@ export function ResolveConnectionField(
   options?: ResolveConnectionFieldOptions,
 ): MethodDecorator {
   return (target: Record<string, any>, key: string | symbol, descriptor: PropertyDescriptor) => {
-    /**
-     * Create connection type
-     * Register it in the schema
-     */
     const connection = ConnectionTypeFactory.create({
       nodeTypeFunc,
       nodeTypeName,
     });
 
-    /**
-     *  Register @ResolveField()
-     */
     const resolveFieldOptions = { ...options, nullable: true };
     ResolveField(() => connection, resolveFieldOptions)(target, key, descriptor);
   };

@@ -1,14 +1,15 @@
-import { Resolver, Query, ResolveField, Args, Parent } from '@nestjs/graphql';
+import { Resolver, Query, Args, Parent } from '@nestjs/graphql';
 import {
   GlobalIdFieldResolver,
   ConnectionArgs,
   ResolveConnectionField,
+  Connection,
 } from '../../src/nestjs-relay';
 import { Faction } from './faction.type';
 import { FactionService } from './faction.service';
-import { ShipConnection } from './ship.connection';
 import { connectionFromArray } from 'graphql-relay';
 import { Ship } from './ship.type';
+import { ShipDTO } from './ship.service';
 
 @Resolver(Faction)
 export class FactionResolver extends GlobalIdFieldResolver(Faction) {
@@ -27,7 +28,7 @@ export class FactionResolver extends GlobalIdFieldResolver(Faction) {
   }
 
   @ResolveConnectionField('Ship', () => Ship)
-  ships(@Args() args: ConnectionArgs, @Parent() parent: Faction) {
+  ships(@Args() args: ConnectionArgs, @Parent() parent: Faction): Connection<ShipDTO | undefined> {
     return connectionFromArray(this.factionService.getShips(parent.id.toString()), args);
   }
 }
