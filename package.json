@@ -22,7 +22,7 @@
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
-    "build:docs": "typedoc --options .typedoc.js",
+    "build:docs": "typedoc --options .typedoc.js --module commonjs",
     "start": "rollup -cw",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
