@@ -3,7 +3,7 @@ import { Resolver, Parent, Info } from '@nestjs/graphql';
 import { GraphQLObjectType } from 'graphql';
 import { GlobalId } from './global-id.type';
 import { ResolvedGlobalId } from './resolved-global-id.class';
-import { GlobalIdField, GlobalIdFieldOptions } from './global-id.field';
+import { GlobalIdField, GlobalIdFieldOptions } from './global-id-field.decorator';
 
 export interface ResolverParent {
   id: GlobalId;
