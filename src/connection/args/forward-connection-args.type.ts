@@ -1,9 +1,10 @@
-import { ArgsType, Field, Int } from '@nestjs/graphql';
+import { ArgsType, Field } from '@nestjs/graphql';
 import * as Relay from 'graphql-relay';
+import { returnsInt } from '../../common';
 
 @ArgsType()
 export class ForwardConnectionArgs {
-  @Field(() => Int)
+  @Field(returnsInt)
   first!: number;
 
   @Field({ nullable: true })
