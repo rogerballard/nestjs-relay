@@ -18,7 +18,8 @@ const plugins = [
 const external = [
   '@nestjs/graphql',
   'graphql-relay',
-  'graphql'
+  'graphql',
+  'util'
 ]
 
 export default [

@@ -1,7 +1,7 @@
 import { ObjectTypeOptions, ObjectType } from '@nestjs/graphql';
 import { isString } from 'util';
 import { NodeInterface } from './node.interface';
-import { MetadataStorage } from '../common';
+import { MetadataStorage, AnyConstructor } from '../common';
 
 export function NodeType(): ClassDecorator;
 
@@ -9,7 +9,7 @@ export function NodeType(options: ObjectTypeOptions): ClassDecorator;
 
 export function NodeType(name: string, options?: ObjectTypeOptions): ClassDecorator;
 
-export function NodeType(
+export function NodeType<T extends AnyConstructor<T>>(
   nameOrOptions?: string | ObjectTypeOptions,
   objectTypeOptions?: ObjectTypeOptions,
 ): ClassDecorator {
