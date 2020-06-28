@@ -30,7 +30,7 @@ type Faction implements Node {
 
     """Paginate last"""
     last: Int
-  ): undefinedConnection
+  ): ShipConnection
 }
 
 type Ship implements Node {
@@ -38,13 +38,13 @@ type Ship implements Node {
   name: String
 }
 
-type undefinedEdge {
+type ShipEdge {
   node: Ship
   cursor: String!
 }
 
-type undefinedConnection {
-  edges: [undefinedEdge]
+type ShipConnection {
+  edges: [ShipEdge]
   pageInfo: PageInfo!
 }
 

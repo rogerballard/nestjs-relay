@@ -41,7 +41,7 @@ export class MetadataStorage {
   static addClassMetadata(args: ClassIdentifier & ClassMetadata): void {
     const { target, ...data } = args;
     const existingMetadata = MetadataStorage.getClassMetadata({ target });
-    const metadata = { ...existingMetadata, data };
+    const metadata = { ...existingMetadata, ...data };
     Reflect.defineMetadata(CLASS_METADATA_KEY, metadata, target);
   }
 
