@@ -8,14 +8,44 @@ interface Node {
   id: ID!
 }
 
+type PageInfo {
+  hasNextPage: Boolean
+  hasPreviousPage: Boolean
+  startCursor: String
+  endCursor: String
+}
+
 type Faction implements Node {
   id: ID!
   name: String
+  ships(
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Int
+
+    """Paginate last"""
+    last: Int
+  ): undefinedConnection
 }
 
 type Ship implements Node {
   id: ID!
   name: String
+}
+
+type undefinedEdge {
+  node: Ship
+  cursor: String!
+}
+
+type undefinedConnection {
+  edges: [undefinedEdge]
+  pageInfo: PageInfo!
 }
 
 type IntroduceShipPayload {

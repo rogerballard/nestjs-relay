@@ -1,15 +1,12 @@
-import { ObjectType, Field } from '@nestjs/graphql';
-import { ResolvedGlobalId, NodeInterface } from '../../src/nestjs-relay';
+import { Field } from '@nestjs/graphql';
+import { NodeInterface, NodeType } from '../../src/nestjs-relay';
 import { FactionDTO } from './faction.service';
-
-@ObjectType({ implements: [NodeInterface] })
-export class Faction implements NodeInterface {
+@NodeType()
+export class Faction extends NodeInterface {
   constructor(props: FactionDTO) {
+    super();
     Object.assign(this, props);
   }
-
-  @Field()
-  id!: ResolvedGlobalId;
 
   @Field({ nullable: true })
   name?: string;

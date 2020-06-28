@@ -1,6 +1,6 @@
 import { ObjectType, Field } from '@nestjs/graphql';
-import { Mixin, AnyConstructor } from '../../common';
 import { capitalise } from '../utils';
+import { AnyConstructor, Mixin } from '../../common';
 
 export const getPayloadName = (mutationName: string): string =>
   capitalise(mutationName) + 'Payload';

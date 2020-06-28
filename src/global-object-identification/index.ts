@@ -7,4 +7,4 @@ export {
   ResolvedGlobalId,
 } from './global-id';
 
-export { NodeFieldResolver, NodeInterface, NodeResolver } from './node';
+export { NodeFieldResolver, NodeInterface, NodeResolver, NodeType } from './node';

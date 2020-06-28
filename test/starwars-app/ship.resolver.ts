@@ -17,10 +17,13 @@ export class ShipResolver extends GlobalIdFieldResolver(Ship) {
   })
   introduceShip(
     @InputArg(() => IntroduceShipInput) input: IntroduceShipInput,
-  ): IntroduceShipOutput {
-    const ship = this.shipService.createShip(input.shipName, input.factionId.id);
-    const faction = this.factionService.getFaction(input.factionId.id);
+  ): IntroduceShipOutput | null {
+    const data = this.factionService.introduceShipToFaction(
+      input.factionId.toString(),
+      input.shipName,
+    );
+    if (!data) return null;
 
-    return new IntroduceShipOutput({ ship, faction });
+    return new IntroduceShipOutput(data);
   }
 }
