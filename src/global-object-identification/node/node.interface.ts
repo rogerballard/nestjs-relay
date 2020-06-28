@@ -1,5 +1,5 @@
 import { Field, InterfaceType } from '@nestjs/graphql';
-import { ResolvedGlobalId } from '../global-id-field';
+import { ResolvedGlobalId } from '../global-id';
 
 @InterfaceType('Node', {
   description: 'An object with an ID',
