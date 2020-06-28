@@ -1,6 +1,6 @@
 import { ReturnTypeFunc } from '@nestjs/graphql';
-import { AnyConstructor } from '../types';
 import { PayloadMixin } from './payload.mixin';
+import { AnyConstructor } from '../../common';
 
 export interface CreatePayloadTypeArgs {
   typeFunc: ReturnTypeFunc;

@@ -1,4 +1,4 @@
-import { getClientMutationId } from './utils';
+import { getClientMutationId } from './get-client-mutation-id.util';
 
 describe('mutation utils', () => {
   describe('getClientMutationId', () => {

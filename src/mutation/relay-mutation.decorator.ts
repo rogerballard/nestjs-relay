@@ -1,8 +1,8 @@
 import { ReturnTypeFunc, MutationOptions, Mutation, Args } from '@nestjs/graphql';
-import { getClientMutationId } from './utils';
-import { MetadataStorage } from './metadata-storage.class';
+import { MetadataStorage } from '../common/metadata-storage.class';
 import { InputArgFactory } from './input-arg';
 import { PayloadTypeFactory } from './payload-type';
+import { getClientMutationId } from './utils';
 
 export type RelayMutationOptions = Omit<MutationOptions, 'nullable'>;
 

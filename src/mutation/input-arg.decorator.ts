@@ -1,5 +1,5 @@
 import { ArgsOptions, ReturnTypeFunc } from '@nestjs/graphql';
-import { MetadataStorage } from './metadata-storage.class';
+import { MetadataStorage } from '../common';
 
 export type InputArgOptions = Omit<ArgsOptions, 'name' | 'nullable' | 'type' | 'defaultValue'>;
 
