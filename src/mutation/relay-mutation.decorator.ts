@@ -1,6 +1,6 @@
 import { ReturnTypeFunc, MutationOptions, Mutation, Args } from '@nestjs/graphql';
 import { getClientMutationId } from './utils';
-import { MetadataStorage } from './metadata-storage.class';
+import { MetadataStorage } from '../common';
 import { InputArgFactory } from './input-arg';
 import { PayloadTypeFactory } from './payload-type';
 

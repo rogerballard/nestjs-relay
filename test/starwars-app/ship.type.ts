@@ -1,15 +1,13 @@
-import { ObjectType, Field } from '@nestjs/graphql';
-import { NodeInterface, ResolvedGlobalId } from '../../src/nestjs-relay';
+import { Field } from '@nestjs/graphql';
+import { NodeInterface, NodeType } from '../../src/nestjs-relay';
 import { ShipDTO } from './ship.service';
 
-@ObjectType({ implements: [NodeInterface] })
-export class Ship implements NodeInterface {
+@NodeType()
+export class Ship extends NodeInterface {
   constructor(props: ShipDTO) {
+    super();
     Object.assign(this, props);
   }
-
-  @Field()
-  id!: ResolvedGlobalId;
 
   @Field({ nullable: true })
   name?: string;
