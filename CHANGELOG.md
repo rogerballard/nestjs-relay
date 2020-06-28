@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/rogerballard/nestjs-relay/compare/v2.1.0...v2.2.0) (2020-06-28)
+
+
+### Features
+
+* **connection:** expose backward and forward connection args ([77a63a8](https://github.com/rogerballard/nestjs-relay/commit/77a63a8cf1df68f7fac75fe90e034b3725af9365))
+
 # [2.1.0](https://github.com/rogerballard/nestjs-relay/compare/v2.0.0...v2.1.0) (2020-06-24)
 
 
