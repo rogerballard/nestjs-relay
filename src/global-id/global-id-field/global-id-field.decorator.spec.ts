@@ -1,5 +1,5 @@
 import * as NestGraphQL from '@nestjs/graphql';
-import { GlobalIdField } from './global-id.field';
+import { GlobalIdField } from './global-id-field.decorator';
 
 describe('GlobalIdField', () => {
   const spy = jest.spyOn(NestGraphQL, 'ResolveField');

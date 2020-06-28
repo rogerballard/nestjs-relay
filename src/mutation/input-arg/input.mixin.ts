@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { capitalise } from '../utils';
-import { Mixin, AnyConstructor } from '../../common';
+import { AnyConstructor, Mixin } from '../../common';
 
 export const getInputName = (mutationName: string): string => capitalise(mutationName) + 'Input';
 

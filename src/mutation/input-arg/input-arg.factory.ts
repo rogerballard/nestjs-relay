@@ -1,7 +1,6 @@
 import { ArgsOptions } from '@nestjs/graphql';
 import { InputMixin } from './input.mixin';
-import { ParameterMetadata } from '../../common/metadata-storage.class';
-import { AnyConstructor } from '../../common';
+import { ParameterMetadata, AnyConstructor } from '../../common';
 
 export interface CreateInputTypeArgs {
   params: ParameterMetadata[];

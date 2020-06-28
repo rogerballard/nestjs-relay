@@ -1,12 +1,6 @@
-import { capitalise, getClientMutationId } from './utils';
+import { getClientMutationId } from './get-client-mutation-id.util';
 
 describe('mutation utils', () => {
-  describe('capitalise', () => {
-    it('should capitalise a the first character of a string', () => {
-      expect(capitalise('a')).toBe('A');
-    });
-  });
-
   describe('getClientMutationId', () => {
     describe('when multiple args are provided', () => {
       describe('when one of the args has the `clientMutationId` property', () => {
