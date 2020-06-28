@@ -5,6 +5,6 @@ export {
   GlobalIdFieldResolver,
   GlobalIdScalar,
   ResolvedGlobalId,
-} from './global-id-field';
+} from './global-id';
 
 export { NodeFieldResolver, NodeInterface, NodeResolver } from './node';
