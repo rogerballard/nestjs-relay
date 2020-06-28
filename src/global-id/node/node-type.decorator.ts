@@ -1,7 +1,7 @@
 import { ObjectTypeOptions, ObjectType } from '@nestjs/graphql';
 import { isString } from 'util';
 import { NodeInterface } from './node.interface';
-import { MetadataStorage, AnyConstructor } from '../common';
+import { MetadataStorage, AnyConstructor } from '../../common';
 
 export function NodeType(): ClassDecorator;
 
