@@ -28,7 +28,7 @@ export class FactionResolver extends GlobalIdFieldResolver(Faction) {
   }
 
   @ResolveConnectionField(() => Ship)
-  ships(@Args() args: ConnectionArgs, @Parent() parent: Faction): Connection<ShipDTO | undefined> {
+  ships(@Args() args: ConnectionArgs, @Parent() parent: Faction): Connection<ShipDTO> {
     return connectionFromArray(this.factionService.getShips(parent.id.toString()), args);
   }
 }
