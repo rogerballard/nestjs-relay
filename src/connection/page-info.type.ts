@@ -1,17 +1,17 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 import * as Relay from 'graphql-relay';
 
-@ObjectType('PageInfo')
+@ObjectType()
 export class PageInfo implements Relay.PageInfo {
-  @Field(() => Boolean, { nullable: true })
-  hasNextPage?: boolean;
+  @Field(() => Boolean)
+  hasNextPage!: boolean;
 
-  @Field(() => Boolean, { nullable: true })
-  hasPreviousPage?: boolean;
+  @Field(() => Boolean)
+  hasPreviousPage!: boolean;
 
-  @Field(() => String, { nullable: true })
-  startCursor?: Relay.ConnectionCursor;
+  @Field(() => String)
+  startCursor!: Relay.ConnectionCursor;
 
-  @Field(() => String, { nullable: true })
-  endCursor?: Relay.ConnectionCursor;
+  @Field(() => String)
+  endCursor!: Relay.ConnectionCursor;
 }
