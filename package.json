@@ -71,7 +71,7 @@
     "supertest": "4.0.2",
     "ts-jest": "26.1.1",
     "tsconfig-paths": "3.9.0",
-    "typedoc": "0.17.7",
+    "typedoc": "0.17.8",
     "typedoc-neo-theme": "1.0.8",
     "typescript": "3.9.5"
   },
