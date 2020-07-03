@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/rogerballard/nestjs-relay/compare/v2.2.0...v2.2.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* set page info fields to non nullable ([6aac951](https://github.com/rogerballard/nestjs-relay/commit/6aac95147fb95145cac934c46d72009b24147af1))
+
 # [2.2.0](https://github.com/rogerballard/nestjs-relay/compare/v2.1.0...v2.2.0) (2020-06-28)
 
 
