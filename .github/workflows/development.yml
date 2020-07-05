@@ -52,7 +52,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           semantic_version: 17
-          dry_run: true
           extra_plugins: |
             @semantic-release/changelog@5
             @semantic-release/git@9         
