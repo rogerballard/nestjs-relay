@@ -28,16 +28,25 @@ The three core assumptions that Relay makes about a GraphQL server are that it p
 
 ## Getting Started
 
+### Prerequisites
+
+- NestJS GraphQL v7
+- Code-first methodology
+
 ### Installation
 
-Install from NPM:
 ```bash
-npm i nestjs-relay
+# NPM
+npm i --save nestjs-relay
+
+# GitHub Release
+npm i --save github:rogerballard/nestjs-relay
 ```
 
-Or from GitHub Release:
+Peer dependencies:
+
 ```bash
-npm i github:rogerballard/nestjs-relay
+npm i --save graphql-relay graphql
 ```
 
 ### Guides
