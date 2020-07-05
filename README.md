@@ -8,6 +8,7 @@ A batteries-included toolkit for building Relay-compliant GraphQL APIs with Nest
 [![Coveralls](https://img.shields.io/coveralls/github/rogerballard/nestjs-relay)](https://coveralls.io/github/rogerballard/nestjs-relay)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+
 ## Background
 
 [Relay](https://relay.dev/) is a Javascript client for GraphQL that is designed for performance and large-scale applications.
