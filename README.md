@@ -10,11 +10,19 @@ A batteries-included toolkit for building Relay-compliant GraphQL APIs with Nest
 
 ## Background
 
-[Relay](https://relay.dev/) is a Javascript client for GraphQL that is designed for performance and large-scale applications. Relay provides powerful abstractions for building client applications, however it does make several assumptions about the GraphQL API it interacts with:
+[Relay](https://relay.dev/) is a Javascript client for GraphQL that is designed for performance and large-scale applications. Relay provides powerful abstractions for building client applications, however, in order to understand the structure of an application's data, Relay requires that you follow certain conventions when defining your schema.
 
-- Refetching data
-- Connection concept for paginating through datasets
-- Conventions for structuring mutations
+The three core assumptions that Relay makes about a GraphQL server are that it provides:
+
+- A mechanism for refetching an object.
+- A description of how to page through connections.
+- Structure around mutations to make them predictable.
+
+For further detail, please see the following resources:
+
+- [Relay's GraphQL Server Specification](https://relay.dev/docs/en/graphql-server-specification)
+- [Global Object Identification Specification](https://graphql.org/learn/global-object-identification/)
+- [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm)
 
 The primary focus of this library is to help you build GraphQL APIs that satisfy Relay's requirements.
 
