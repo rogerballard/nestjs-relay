@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # Refetching Data
 
-The first core assumtpion that Relay makes about a GraphQL API is that is provides a mechanism for refetching an object. The following steps will configure your GraphQL API to provide this mechanism.
+The first core assumption that Relay makes about a GraphQL API is that is provides a mechanism for refetching an object. The following steps will configure your GraphQL API to provide this mechanism.
 
 - [Include the Global ID Scalar](#include-the-global-id-scalar)
 - [Create a Node Type](#create-a-node-type)
