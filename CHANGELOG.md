@@ -1,3 +1,40 @@
+# [3.0.0](https://github.com/rogerballard/nestjs-relay/compare/v2.1.1...v3.0.0) (2020-07-05)
+
+
+* Next (#67) ([dc4a9b0](https://github.com/rogerballard/nestjs-relay/commit/dc4a9b0cfa4079cfb7a9f5a2839ea3bf8c903d19)), closes [#67](https://github.com/rogerballard/nestjs-relay/issues/67) [#65](https://github.com/rogerballard/nestjs-relay/issues/65) [#68](https://github.com/rogerballard/nestjs-relay/issues/68)
+
+
+### BREAKING CHANGES
+
+* the GlobalIdField decorator and NodeResolver interface are no longer exported
+
+* docs: fix typo in refecting data guide
+
+* chore(release): 3.0.0 [skip ci]
+
+# [3.0.0](https://github.com/rogerballard/nestjs-relay/compare/v2.2.2...v3.0.0) (2020-07-05)
+
+### Code Refactoring
+
+* **global object identification:** remove GlobalIdField and NodeResolver from exports ([3ac890a](https://github.com/rogerballard/nestjs-relay/commit/3ac890ae407638903663cbd97c5b4b6c6b248c44))
+
+### BREAKING CHANGES
+
+* **global object identification:** the GlobalIdField decorator and NodeResolver interface are no longer exported
+
+* docs(mutations guide): add updated mutations guide
+
+* docs: remove old mutations guide
+
+* docs(connections guide): add connections guide
+
+* docs(readme): add prerequisites and peer dependencies
+
+* docs(readme): simplify features
+
+Co-authored-by: Roger Ballard <roger@park-it-solutions.com>
+Co-authored-by: semantic-release-bot <semantic-release-bot@martynus.net>
+
 # [3.0.0](https://github.com/rogerballard/nestjs-relay/compare/v2.2.2...v3.0.0) (2020-07-05)
 
 
