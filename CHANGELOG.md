@@ -1,3 +1,11 @@
+## [3.0.1](https://github.com/rogerballard/nestjs-relay/compare/v3.0.0...v3.0.1) (2020-07-05)
+
+
+### Bug Fixes
+
+* enable releases ([36633db](https://github.com/rogerballard/nestjs-relay/commit/36633db40269c6b041963a8d0e354df02dd40c3e))
+* release mismatch ([945748a](https://github.com/rogerballard/nestjs-relay/commit/945748affa88806d00fc8da74bee79d8f9b9daac))
+
 # [3.0.0](https://github.com/rogerballard/nestjs-relay/compare/v2.1.1...v3.0.0) (2020-07-05)
 
 
