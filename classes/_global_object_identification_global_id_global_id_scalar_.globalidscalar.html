@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PayloadTypeFactory | NestJS Relay - v3.0.0</title>
+	<title>GlobalIdScalar | NestJS Relay - v3.0.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -51,10 +51,10 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules/_mutation_payload_type_payload_type_factory_.html">mutation/payload-type/payload-type.factory</a>
+					<a href="../modules/_global_object_identification_global_id_global_id_scalar_.html">global-object-identification/global-id/global-id.scalar</a>
 				</li>
 				<li>
-					<a href="_mutation_payload_type_payload_type_factory_.payloadtypefactory.html">PayloadTypeFactory</a>
+					<a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html">GlobalIdScalar</a>
 				</li>
 			</ul>
 		</div>
@@ -69,19 +69,25 @@
 						<a href="../globals.html" style="display:none"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_mutation_payload_type_payload_type_factory_.html" style="display:none">mutation/payload-type/payload-type.factory</a>
+						<a href="../modules/_global_object_identification_global_id_global_id_scalar_.html" style="display:none">global-object-identification/global-id/global-id.scalar</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		<div class="col-7 offset-3 col-content">
-			<h1>Class PayloadTypeFactory</h1>
+			<h1>Class GlobalIdScalar</h1>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PayloadTypeFactory</span>
+						<span class="target">GlobalIdScalar</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><span class="tsd-signature-type">CustomScalar</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -90,7 +96,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_mutation_payload_type_payload_type_factory_.payloadtypefactory.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html#parseliteral" class="tsd-kind-icon">parseLiteral</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html#parsevalue" class="tsd-kind-icon">parseValue</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html#serialize" class="tsd-kind-icon">serialize</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,26 +106,72 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="create" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><a href="../interfaces/_mutation_payload_type_payload_type_factory_.createpayloadtypeargs.html" class="tsd-signature-type">CreatePayloadTypeArgs</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_common_types_.html#anyconstructor" class="tsd-signature-type">AnyConstructor</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parseliteral" class="tsd-anchor"></a>
+					<h3>parse<wbr>Literal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Literal<span class="tsd-signature-symbol">(</span>ast<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueNode</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/mutation/payload-type/payload-type.factory.ts:11</li>
+									<li>Defined in src/global-object-identification/global-id/global-id.scalar.ts:20</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>args: <a href="../interfaces/_mutation_payload_type_payload_type_factory_.createpayloadtypeargs.html" class="tsd-signature-type">CreatePayloadTypeArgs</a></h5>
+									<h5>ast: <span class="tsd-signature-type">ValueNode</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../modules/_common_types_.html#anyconstructor" class="tsd-signature-type">AnyConstructor</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="parsevalue" class="tsd-anchor"></a>
+					<h3>parse<wbr>Value</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Value<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/global-object-identification/global-id/global-id.scalar.ts:8</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="serialize" class="tsd-anchor"></a>
+					<h3>serialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">serialize<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/global-object-identification/global-id/global-id.scalar.ts:16</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="_global_object_identification_global_id_resolved_global_id_class_.resolvedglobalid.html" class="tsd-signature-type">ResolvedGlobalId</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -130,18 +184,21 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module root">
-						<a href="_mutation_payload_type_payload_type_factory_.payloadtypefactory.html" class="tsd-kind-icon">Payload<wbr>Type<wbr>Factory</a>
+						<a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html" class="tsd-kind-icon">Global<wbr>IdScalar</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_mutation_payload_type_payload_type_factory_.payloadtypefactory.html#create" class="tsd-kind-icon">create</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html#parseliteral" class="tsd-kind-icon">parse<wbr>Literal</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html#parsevalue" class="tsd-kind-icon">parse<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_global_object_identification_global_id_global_id_scalar_.globalidscalar.html#serialize" class="tsd-kind-icon">serialize</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module root">
-						<a href="../interfaces/_mutation_payload_type_payload_type_factory_.createpayloadtypeargs.html" class="tsd-kind-icon">Create<wbr>Payload<wbr>Type<wbr>Args</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
