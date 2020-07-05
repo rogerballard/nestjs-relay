@@ -12,6 +12,13 @@
 
 * **connection:** expose backward and forward connection args ([77a63a8](https://github.com/rogerballard/nestjs-relay/commit/77a63a8cf1df68f7fac75fe90e034b3725af9365))
 
+## [2.1.1](https://github.com/rogerballard/nestjs-relay/compare/v2.1.0...v2.1.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* upgrade graphql from 15.0.0 to 15.1.0 ([#68](https://github.com/rogerballard/nestjs-relay/issues/68)) ([b36d4c8](https://github.com/rogerballard/nestjs-relay/commit/b36d4c81c11333738d3d153f6a9d8d88e6c1cf98))
+
 # [2.1.0](https://github.com/rogerballard/nestjs-relay/compare/v2.0.0...v2.1.0) (2020-06-24)
 
 
