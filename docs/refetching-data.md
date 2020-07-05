@@ -3,10 +3,12 @@
 
 The first core assumption that Relay makes about a GraphQL API is that is provides a mechanism for refetching an object. The following steps will configure your GraphQL API to provide this mechanism.
 
+**Contents**
 - [Include the Global ID Scalar](#include-the-global-id-scalar)
 - [Create a Node Type](#create-a-node-type)
 - [Resolve the `id` Field](#resolve-the-id-field)
 - [Resolve the `node` and `nodes` Root Fields](#resolve-the-node-and-nodes-root-fields)
+- [Conclusion](#conclusion)
 
 
 ## Include the Global ID Scalar
@@ -23,9 +25,7 @@ import { GlobalIdScalar } from 'nestjs-relay'
 export class CommonModule {}
 ```
 
-> The global id scalar will override the default functionality of the `ID` scalar that comes out of the box from `nestjs/graphql`.
-
-At this point, your application's GraphQL schema will remain unchanged.
+The global id scalar will override the default functionality of the `ID` scalar that comes out of the box from `nestjs/graphql`.
 
 ## Create a Node Type
 
@@ -43,9 +43,7 @@ export class Ship extends NodeInterface {
 }
 ```
 
->The `NodeType` decorator accepts the same argument signatures as the `ObjectType` decorator from `@nestjs/graphql`.
-
-> The `NodeType` decorator enables `Connections` to be aware of the name of the type.
+The `NodeType` decorator accepts the same argument signatures as the `ObjectType` decorator from `@nestjs/graphql`. The `NodeType` decorator also enables `Connections` to be aware of the name of the type.
 
 At this point, your application's schema will contain the following changes:
 
@@ -77,11 +75,9 @@ import { Ship } from './ship.type'
 export class ShipResolver extends IdFieldResolver(Ship) {}
 ```
 
-> The default behaviour of the `id` field resolver will serialize a global id from either a `number`, `string` or `ResolvedGlobalId`.
+The default behaviour of the `id` field resolver will serialize a global id from either a `number`, `string` or `ResolvedGlobalId`.
 
-> A second argument can be provided to pass additional options to the `id` field that you would normally find in the `FieldResolver` decorator from `@nestjs/graphql`. This is currently limited to the `complexity` field, as the Relay specification requires this field to be named `'id'` and to be non-nullable.
-
-At this point, your application's GraphQL schema will remain unchanged from the previous step.
+A second argument can be provided to pass additional options to the `id` field that you would normally find in the `FieldResolver` decorator from `@nestjs/graphql`. This is currently limited to the `complexity` property, as the Relay specification requires this field to be named `'id'` and to be non-nullable.
 
 ## Resolve the `node` and `nodes` Root Fields
 
@@ -101,7 +97,7 @@ export class NodeResolver extends NodeFieldResolver() {
 }
 ```
 
-> The resolver should be configured to resolve the `NodeInterface`; this enables it to return any schema type that implements the node interface.
+The resolver should be configured to resolve the `NodeInterface`; this enables it to return any schema type that implements the node interface.
 
 The `NodeFieldResolver` class requires that your application code implements the `resolveNode` method, which should contain the logic for determining which *type* is being requested, then fetching the data for the specified *object* of that type.
 
@@ -127,9 +123,7 @@ export class NodeResolver extends NodeFieldResolver() {
 }
 ```
 
-> The `ResolvedGlobalId` type has two properties: `type` and `id`.
-
-The `ResolvedGlobalId` class has the `toString` and `toNumber` helper methods so that your application code can remain free of the conversion logic.
+The `ResolvedGlobalId` type has two properties - `type` and `id` - as well as the `toString` and `toNumber` helper methods so that your application code can remain free of the conversion logic.
 
 ```typescript
 const resolvedGlobalId = new ResolvedGlobalId({ type: 'Ship', id: '1' })
@@ -137,6 +131,8 @@ const resolvedGlobalId = new ResolvedGlobalId({ type: 'Ship', id: '1' })
 console.log(resolvedGlobalId.toString()) // '1'
 console.log(resolvedGlobalId.toNumber()) // 1
 ```
+
+## Conclusion
 
 At this point, your application's GraphQL schema will contain the following changes:
 
