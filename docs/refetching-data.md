@@ -66,7 +66,7 @@ type Ship implements Node {
 
 Now that the `id` field has been added to the `Ship` type, we need to implement a custom resolver to ensure that a global id is resolved from the value we pass to it.
 
-The `IdFieldResolver` function automatically implements the resolver behaviour for us.
+The `GlobalIdFieldResolver` function automatically implements the resolver behaviour for us.
 
 ```typescript
 import { Resolver } from '@nestjs/graphql'
