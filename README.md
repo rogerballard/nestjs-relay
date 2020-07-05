@@ -21,10 +21,7 @@ The three core assumptions that Relay makes about a GraphQL server are that it p
 - Structure around mutations to make them predictable.
 
 ## Features
-- `ID` scalar that automatically handles global id transformations
-- The `Node` interface to implement in your schema types
-- Resolvers for the `node` and `nodes` root fields
-- Automatic `Input` and `Payload` type generation for mutations
+- Build a Relay-compliant GraphQL API without the hassle!
 
 ## Getting Started
 
