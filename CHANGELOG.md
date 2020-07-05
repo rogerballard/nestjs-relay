@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/rogerballard/nestjs-relay/compare/v2.2.2...v3.0.0) (2020-07-05)
+
+
+### Code Refactoring
+
+* **global object identification:** remove GlobalIdField and NodeResolver from exports ([3ac890a](https://github.com/rogerballard/nestjs-relay/commit/3ac890ae407638903663cbd97c5b4b6c6b248c44))
+
+
+### BREAKING CHANGES
+
+* **global object identification:** the GlobalIdField decorator and NodeResolver interface are no longer exported
+
 ## [2.2.2](https://github.com/rogerballard/nestjs-relay/compare/v2.2.1...v2.2.2) (2020-07-05)
 
 
