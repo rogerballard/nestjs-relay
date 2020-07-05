@@ -1,3 +1,36 @@
+# [3.0.0](https://github.com/rogerballard/nestjs-relay/compare/v2.2.2...v3.0.0) (2020-07-05)
+
+
+### Code Refactoring
+
+* **global object identification:** remove GlobalIdField and NodeResolver from exports ([3ac890a](https://github.com/rogerballard/nestjs-relay/commit/3ac890ae407638903663cbd97c5b4b6c6b248c44))
+
+
+### BREAKING CHANGES
+
+* **global object identification:** the GlobalIdField decorator and NodeResolver interface are no longer exported
+
+## [2.2.2](https://github.com/rogerballard/nestjs-relay/compare/v2.2.1...v2.2.2) (2020-07-05)
+
+
+### Bug Fixes
+
+* upgrade graphql from 15.0.0 to 15.1.0 ([#68](https://github.com/rogerballard/nestjs-relay/issues/68)) ([b36d4c8](https://github.com/rogerballard/nestjs-relay/commit/b36d4c81c11333738d3d153f6a9d8d88e6c1cf98))
+
+## [2.2.1](https://github.com/rogerballard/nestjs-relay/compare/v2.2.0...v2.2.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* set page info fields to non nullable ([6aac951](https://github.com/rogerballard/nestjs-relay/commit/6aac95147fb95145cac934c46d72009b24147af1))
+
+# [2.2.0](https://github.com/rogerballard/nestjs-relay/compare/v2.1.0...v2.2.0) (2020-06-28)
+
+
+### Features
+
+* **connection:** expose backward and forward connection args ([77a63a8](https://github.com/rogerballard/nestjs-relay/commit/77a63a8cf1df68f7fac75fe90e034b3725af9365))
+
 ## [2.1.1](https://github.com/rogerballard/nestjs-relay/compare/v2.1.0...v2.1.1) (2020-07-03)
 
 

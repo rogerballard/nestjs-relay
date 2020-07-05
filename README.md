@@ -10,46 +10,63 @@ A batteries-included toolkit for building Relay-compliant GraphQL APIs with Nest
 
 ## Background
 
-[Relay](https://relay.dev/) is a Javascript client for GraphQL that is designed for performance and large-scale applications. Relay provides powerful abstractions for building client applications, however it does make several assumptions about the GraphQL API it interacts with:
+[Relay](https://relay.dev/) is a Javascript client for GraphQL that is designed for performance and large-scale applications.
 
-- Refetching data
-- Connection concept for paginating through datasets
-- Conventions for structuring mutations
+Relay provides powerful abstractions for building client applications, however, in order to understand the structure of an application's data, Relay requires that you follow certain conventions when defining your schema.
 
-The primary focus of this library is to help you build GraphQL APIs that satisfy Relay's requirements.
+The three core assumptions that Relay makes about a GraphQL server are that it provides:
+
+- A mechanism for refetching an object.
+- A description of how to page through connections.
+- Structure around mutations to make them predictable.
 
 ## Features
-- `ID` scalar that automatically handles global id transformations
-- The `Node` interface to implement in your schema types
-- Resolvers for the `node` and `nodes` root fields
-- Automatic `Input` and `Payload` type generation for mutations
-
-### Coming Soon
-- Connections *([see #31](https://github.com/rogerballard/nestjs-relay/issues/31))*
+- Build a Relay-compliant GraphQL API without the hassle!
 
 ## Getting Started
 
+### Prerequisites
+
+- NestJS GraphQL v7
+- Code-first methodology
+
 ### Installation
 
-Install from NPM:
 ```bash
-npm i nestjs-relay
+# NPM
+npm i --save nestjs-relay
+
+# GitHub Release
+npm i --save github:rogerballard/nestjs-relay
 ```
 
-Or from GitHub Release:
+Peer dependencies:
+
 ```bash
-npm i github:rogerballard/nestjs-relay
+npm i --save graphql-relay graphql
 ```
 
 ### Guides
 
-- [Global Object Identification](docs/global-object-identification.md)
+- [Refetching Data](docs/refetching-data.md)
 - [Mutations](docs/mutations.md)
-- Connections *(coming soon)*
+- [Connections](docs/connections.md)
 
 ### Documentation
 
 - [Full API](https://rogerballard.github.io/nestjs-relay/)
+
+## Further Reading
+
+For further detail, please see the following resources.
+
+**Walkthroughs**
+- [Relay's GraphQL Server Specification](https://relay.dev/docs/en/graphql-server-specification)
+- [Global Object Identification](https://graphql.org/learn/global-object-identification/)
+
+**Specifications**
+- [GraphQL Global Object Identification Specification](https://relay.dev/graphql/objectidentification.htm)
+- [GraphQL Cursor Connections Specification](https://relay.dev/graphql/connections.htm)
 
 ## Contributing
 

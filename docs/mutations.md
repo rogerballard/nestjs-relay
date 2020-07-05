@@ -1,36 +1,53 @@
+<!-- omit in toc -->
 # Mutations
 
-There are three criteria for a Relay-compatible mutation:
-1. The mutation must accept an argument, named `input`, that is an object. By convention, the type name of the input object should be suffixed with `'Input'`.
-2. The mutation must return an object. By convention, the type name of the returned object should be suffixed with `'Payload'`.
-3. Both the `Input` and the `Payload` types must have a field named `clientMutationId` of type `string`.
+The third core assumption that Relay makes about a GraphQL API is that there is a specific structure around mutations to make them more predictable.
 
-For further background information, see the following resources:
-- [Specification - relay.dev](https://relay.dev/docs/en/graphql-server-specification#mutations)
+The mutation conventions that Relay imposes can be summarised as:
 
-## Registering a mutation
+- Every mutation must accept an argument, named `input`, that is an object.
+- The name of the `input` type argument must be suffixed with `'Input'`.
+- Every mutation must return an object type.
+- The name of the returned object type must be suffixed with `'Payload'`.
+- Both the `Input` and the `Payload` types must have a field named `clientMutationId` that is of type `string`.
 
-The `RelayMutation` decorator can be used to register a relay-compliant mutation, which will handle the `Input`, `Payload` and `clientMutationId` requirements.
+**Contents**
+- [Register a Mutation](#register-a-mutation)
+- [Register an Input Type](#register-an-input-type)
+- [Register the Input Argument](#register-the-input-argument)
+- [Conclusion](#conclusion)
 
-First, use the `RelayMutation` decorator within a resolver class.
+## Register a Mutation
+
+The `RelayMutation` decorator helps to abstract the detail of implementing the structural conventions, such as the creation of an `Input` and `Payload` type that are specific to the mutation.
+
+Use the `RelayMutation` decorator instead of the `Mutation` decorator from `@nestjs/graphql`.
 
 ```typescript
+import { Resolver } from '@nestjs/graphql'
 import { RelayMutation } from 'nestjs-relay'
+import { Ship } from './ship.type'
 
 @Resolver(Ship)
 export class ShipResolver {
   @RelayMutation(() => Ship)
-  buildShip() {}
+  buildShip() {
+    return null
+  }
 }
 ```
 
-> Note: the `RelayMutation` decorator abstracts some options from the `Mutation` decorator in `nestjs/graphql`. This enables the `RelayMutation` decorator to ensure that the schema it produces will comply with the specification.
+The first argument of the `RelayMutation` decorator is a function that returns the payload type. This type does not need to have the `clientMutationId` field, as it will be added by the `RelayMutation` decorator. The name of the type will have `'Payload'` suffixed automatically.
 
-## Registering an input type
+A second argument can be provided to pass additional options to the mutation field that you would normally find in the `Mutation` decorator from `@nestjs/graphql`. Relay requires the `Payload` to be nullable, so the `nullable` property is not available as an option. The other options availabe in `@nestjs/graphql` are available.
 
-First, we need to create an input type for the mutation, which we can do using the `InputType` decorator from `nestjs/graphql`.
+## Register an Input Type
+
+Next, we need to create an input type for the mutation so that we can specify the input arguments in the schema.
 
 ```typescript
+import { InputType } from '@nestjs/graphql'
+
 @InputType()
 export class BuildShipInput {
   @Field()
@@ -38,33 +55,38 @@ export class BuildShipInput {
 }
 ```
 
-Then we can use the `InputArg` decorator in the mutation declaration, and the `Input` type will be created for us.
+> This type does not need to have the `clientMutationId` field, as it will be added by the `RelayMutation` decorator. The name of the type will have `'Input'` suffixed automatically.
+
+## Register the Input Argument
+
+Now that we have registered an input type for the mutation, we need to register it as an argument in the mutation.
+
+The `InputArg` decorator ensures that the input argument complies with the structural conventions that are required by Relay.
 
 ```typescript
+import { Resolver } from '@nestjs/graphql'
 import { RelayMutation, InputArg } from 'nestjs-relay'
+import { Ship } from './ship.type'
+import { BuildShipInput } from './build-ship.input'
 
 @Resolver(Ship)
 export class ShipResolver {
   @RelayMutation(() => Ship)
   buildShip(@InputArg(() => BuildShipInput) input: BuildShipInput) {
-    //
+    return null
   }
 }
 ```
 
-> Note: use the `InputArg` decorator - rather than the `Args` decorator from `nestjs/graphql` - to ensure that the schema complies with the specification.
+The first argument of the `InputArg` decorator must be a function returning the input type. The optional second argument allows additional properties to be provided; currently this is limited to the `description` property, as the input argument must be non-nullable.
+
+The argument field will always be named `input` in the schema - regardless of what it is named in the method arguments. This means that you can name it differently, or destructure the object within the mutation resolver.
 
 ## Conclusion
 
-At this point, we have:
-- registed a spec-compliant mutation
-- generated the input and payload types in the background
-- the `RelayMutation` decorator handles the returning of the `clientMutationId` automatically
+At this point, your application's GraphQL schema will contain the following changes:
 
-The schema will look like the below:
 ```graphql
-# includes schema from global object identification guide
-
 input BuildShipInput {
   name: String!
   clientMutationId: String

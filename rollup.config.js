@@ -6,14 +6,20 @@ const input = 'src/nestjs-relay.ts'
 
 const plugins = [
   typescript({
-    typescript: ts
-  })
-]
+    typescript: ts,
+    tsconfigOverride: {
+      compilerOptions: {
+        module: 'ES2015'
+      }
+    },
+  }),
+];
 
 const external = [
   '@nestjs/graphql',
   'graphql-relay',
-  'graphql'
+  'graphql',
+  'util'
 ]
 
 export default [

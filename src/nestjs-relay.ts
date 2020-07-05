@@ -1,2 +1,3 @@
-export * from './global-id';
+export * from './global-object-identification';
 export * from './mutation';
+export * from './connection';
