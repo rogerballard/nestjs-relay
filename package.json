@@ -1,8 +1,13 @@
 {
   "name": "nestjs-relay",
   "version": "3.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "A batteries-included toolkit for building Relay-compliant GraphQL APIs with NestJS",
+  "keywords": [
+    "nestjs",
+    "nestjs-graphql",
+    "relay",
+    "relay-modern"
+  ],
   "main": "dist/cjs/nestjs-relay.js",
   "module": "dist/esm/nestjs-relay.js",
   "typings": "dist/cjs/nestjs-relay.d.ts",
