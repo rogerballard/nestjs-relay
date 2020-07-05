@@ -10,7 +10,6 @@ The first core assumption that Relay makes about a GraphQL API is that is provid
 - [Resolve the `node` and `nodes` Root Fields](#resolve-the-node-and-nodes-root-fields)
 - [Conclusion](#conclusion)
 
-
 ## Include the Global ID Scalar
 
 The `GlobalIdScalar` helps to abstract the implementation of global identifiers from your application code by exporting a customised `ID` scalar that automatically handles transformations at the interface layer of the GraphQL API.
