@@ -74,7 +74,7 @@
     "semantic-release": "17.1.1",
     "snyk": "1.360.0",
     "supertest": "4.0.2",
-    "ts-jest": "26.1.1",
+    "ts-jest": "26.1.4",
     "tsconfig-paths": "3.9.0",
     "typedoc": "0.17.8",
     "typedoc-neo-theme": "1.0.8",
