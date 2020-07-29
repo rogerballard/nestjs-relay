@@ -77,7 +77,7 @@
     "ts-jest": "26.1.4",
     "tsconfig-paths": "3.9.0",
     "typedoc": "0.17.8",
-    "typedoc-neo-theme": "1.0.8",
+    "typedoc-neo-theme": "1.0.9",
     "typescript": "3.9.7"
   },
   "config": {
