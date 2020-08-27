@@ -1,6 +1,6 @@
 {
   "name": "nestjs-relay",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "A batteries-included toolkit for building Relay-compliant GraphQL APIs with NestJS",
   "keywords": [
     "nestjs",

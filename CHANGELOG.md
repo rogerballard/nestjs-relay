@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/rogerballard/nestjs-relay/compare/v3.0.3...v3.0.4) (2020-08-27)
+
+
+### Bug Fixes
+
+* upgrade graphql-tools from 6.0.13 to 6.0.14 ([e12492e](https://github.com/rogerballard/nestjs-relay/commit/e12492e0e2a1a17502b6a32b307f8c6b3c115f82))
+
 ## [3.0.3](https://github.com/rogerballard/nestjs-relay/compare/v3.0.2...v3.0.3) (2020-07-29)
 
 
