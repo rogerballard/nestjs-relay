@@ -41,7 +41,7 @@
     "@nestjs/graphql": "^7.4.1",
     "graphql": "^15.2.0",
     "graphql-relay": "^0.6.0",
-    "graphql-tools": "^6.0.13",
+    "graphql-tools": "^6.0.14",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
