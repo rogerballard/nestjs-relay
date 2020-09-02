@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/rogerballard/nestjs-relay/compare/v4.0.0...v4.0.1) (2020-09-02)
+
+
+### Bug Fixes
+
+* upgrade multiple dependencies with Snyk ([9943d49](https://github.com/rogerballard/nestjs-relay/commit/9943d49ff930cdc7b4dc61e1278cd603ea19321f))
+
 # [4.0.0](https://github.com/rogerballard/nestjs-relay/compare/v3.0.5...v4.0.0) (2020-09-02)
 
 
