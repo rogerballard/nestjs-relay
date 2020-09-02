@@ -72,7 +72,7 @@
     "rollup": "2.26.8",
     "rollup-plugin-typescript2": "0.27.2",
     "semantic-release": "17.1.1",
-    "snyk": "1.386.0",
+    "snyk": "1.388.0",
     "supertest": "4.0.2",
     "ts-jest": "26.3.0",
     "tsconfig-paths": "3.9.0",
