@@ -1,3 +1,59 @@
+# [4.0.0](https://github.com/rogerballard/nestjs-relay/compare/v3.0.5...v4.0.0) (2020-09-02)
+
+
+### Bug Fixes
+
+* set page info fields to non nullable ([6aac951](https://github.com/rogerballard/nestjs-relay/commit/6aac95147fb95145cac934c46d72009b24147af1))
+
+
+### Build System
+
+* **development workflow:** add build step to deploy phase ([4737a6e](https://github.com/rogerballard/nestjs-relay/commit/4737a6e545a8c28d854489a4c9f484233e1c2e5d))
+
+
+### Code Refactoring
+
+* **global object identification:** remove GlobalIdField and NodeResolver from exports ([3ac890a](https://github.com/rogerballard/nestjs-relay/commit/3ac890ae407638903663cbd97c5b4b6c6b248c44))
+
+
+### Features
+
+* **connection:** expose backward and forward connection args ([77a63a8](https://github.com/rogerballard/nestjs-relay/commit/77a63a8cf1df68f7fac75fe90e034b3725af9365))
+
+
+### BREAKING CHANGES
+
+* **development workflow:** Package contains built contents
+* **global object identification:** the GlobalIdField decorator and NodeResolver interface are no longer exported
+
+## [3.0.5](https://github.com/rogerballard/nestjs-relay/compare/v3.0.4...v3.0.5) (2020-08-29)
+
+
+### Bug Fixes
+
+* upgrade graphql from 15.2.0 to 15.3.0 ([270033b](https://github.com/rogerballard/nestjs-relay/commit/270033b804f5979364e1b6bc991b5dee5ad6be5c))
+
+## [3.0.4](https://github.com/rogerballard/nestjs-relay/compare/v3.0.3...v3.0.4) (2020-08-27)
+
+
+### Bug Fixes
+
+* upgrade graphql-tools from 6.0.13 to 6.0.14 ([e12492e](https://github.com/rogerballard/nestjs-relay/commit/e12492e0e2a1a17502b6a32b307f8c6b3c115f82))
+
+## [3.0.3](https://github.com/rogerballard/nestjs-relay/compare/v3.0.2...v3.0.3) (2020-07-29)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([6539eec](https://github.com/rogerballard/nestjs-relay/commit/6539eecbf55bdc9082b24bbc56c29ddd740bc882))
+
+## [3.0.2](https://github.com/rogerballard/nestjs-relay/compare/v3.0.1...v3.0.2) (2020-07-29)
+
+
+### Bug Fixes
+
+* upgrade graphql from 15.1.0 to 15.2.0 ([aea774d](https://github.com/rogerballard/nestjs-relay/commit/aea774d7c7f9e1f9c3cc4e7113f80c08aa09360b))
+
 ## [3.0.1](https://github.com/rogerballard/nestjs-relay/compare/v3.0.0...v3.0.1) (2020-07-05)
 
 
