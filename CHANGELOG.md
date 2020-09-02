@@ -1,3 +1,31 @@
+# [4.0.0](https://github.com/rogerballard/nestjs-relay/compare/v3.0.5...v4.0.0) (2020-09-02)
+
+
+### Bug Fixes
+
+* set page info fields to non nullable ([6aac951](https://github.com/rogerballard/nestjs-relay/commit/6aac95147fb95145cac934c46d72009b24147af1))
+
+
+### Build System
+
+* **development workflow:** add build step to deploy phase ([4737a6e](https://github.com/rogerballard/nestjs-relay/commit/4737a6e545a8c28d854489a4c9f484233e1c2e5d))
+
+
+### Code Refactoring
+
+* **global object identification:** remove GlobalIdField and NodeResolver from exports ([3ac890a](https://github.com/rogerballard/nestjs-relay/commit/3ac890ae407638903663cbd97c5b4b6c6b248c44))
+
+
+### Features
+
+* **connection:** expose backward and forward connection args ([77a63a8](https://github.com/rogerballard/nestjs-relay/commit/77a63a8cf1df68f7fac75fe90e034b3725af9365))
+
+
+### BREAKING CHANGES
+
+* **development workflow:** Package contains built contents
+* **global object identification:** the GlobalIdField decorator and NodeResolver interface are no longer exported
+
 ## [3.0.5](https://github.com/rogerballard/nestjs-relay/compare/v3.0.4...v3.0.5) (2020-08-29)
 
 
