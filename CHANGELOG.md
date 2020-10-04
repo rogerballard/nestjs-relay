@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/rogerballard/nestjs-relay/compare/v4.0.2...v4.0.3) (2020-10-04)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([5c2bfc0](https://github.com/rogerballard/nestjs-relay/commit/5c2bfc009251c94a64d9cf8e60d1a610c10529ec))
+
 ## [4.0.2](https://github.com/rogerballard/nestjs-relay/compare/v4.0.1...v4.0.2) (2020-10-04)
 
 
