@@ -4,6 +4,7 @@ import {
   ConnectionArgs,
   ResolveConnectionField,
   Connection,
+  QueryConnection,
 } from '../../src/nestjs-relay';
 import { Faction } from './faction.type';
 import { FactionService } from './faction.service';
@@ -25,6 +26,14 @@ export class FactionResolver extends GlobalIdFieldResolver(Faction) {
   @Query(() => Faction, { nullable: true })
   empire() {
     return this.factionService.getEmpire();
+  }
+
+  @QueryConnection(() => Faction)
+  factions(@Args() args: ConnectionArgs) {
+    return connectionFromArray(
+      [this.factionService.getRebels(), this.factionService.getEmpire()],
+      args,
+    );
   }
 
   @ResolveConnectionField(() => Ship)
