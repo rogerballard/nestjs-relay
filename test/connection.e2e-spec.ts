@@ -181,6 +181,13 @@ describe('Connection', () => {
         edges {
           node {
             name
+            ships(first: 3) {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }
@@ -188,6 +195,8 @@ describe('Connection', () => {
   `;
 
     const response = await request(app.getHttpServer()).post('/graphql').send({ query });
+
+    console.log(JSON.stringify(response.body, null, 2));
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
@@ -197,11 +206,49 @@ describe('Connection', () => {
             {
               node: {
                 name: 'Alliance to Restore the Republic',
+                ships: {
+                  edges: [
+                    {
+                      node: {
+                        name: 'X-Wing',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'Y-Wing',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'A-Wing',
+                      },
+                    },
+                  ],
+                },
               },
             },
             {
               node: {
                 name: 'Galactic Empire',
+                ships: {
+                  edges: [
+                    {
+                      node: {
+                        name: 'TIE Fighter',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'TIE Interceptor',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'Executor',
+                      },
+                    },
+                  ],
+                },
               },
             },
           ],

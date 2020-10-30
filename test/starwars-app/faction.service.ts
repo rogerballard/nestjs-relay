@@ -53,6 +53,10 @@ export class FactionService {
     };
   }
 
+  public getFactions() {
+    return this.factions;
+  }
+
   public getShips(factionId: string) {
     const faction = this.getFaction(factionId);
     return faction ? faction.ships.map((shipId) => this.shipService.getShip(shipId)) : [];

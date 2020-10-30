@@ -30,10 +30,7 @@ export class FactionResolver extends GlobalIdFieldResolver(Faction) {
 
   @QueryConnection(() => Faction)
   factions(@Args() args: ConnectionArgs) {
-    return connectionFromArray(
-      [this.factionService.getRebels(), this.factionService.getEmpire()],
-      args,
-    );
+    return connectionFromArray(this.factionService.getFactions(), args);
   }
 
   @ResolveConnectionField(() => Ship)
