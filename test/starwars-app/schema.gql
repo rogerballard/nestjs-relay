@@ -38,6 +38,16 @@ type Ship implements Node {
   name: String
 }
 
+type FactionEdge {
+  node: Faction
+  cursor: String!
+}
+
+type FactionConnection {
+  edges: [FactionEdge]
+  pageInfo: PageInfo!
+}
+
 type ShipEdge {
   node: Ship
   cursor: String!
@@ -68,6 +78,19 @@ type Query {
   ): [Node]!
   rebels: Faction
   empire: Faction
+  factions(
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Int
+
+    """Paginate last"""
+    last: Int
+  ): FactionConnection
 }
 
 type Mutation {

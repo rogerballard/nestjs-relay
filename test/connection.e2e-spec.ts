@@ -172,6 +172,90 @@ describe('Connection', () => {
     });
   });
 
+  it('should fetch the empire & alliance for the top-level factions connection', async () => {
+    expect.assertions(2);
+
+    const query = `
+    query FactionsConnectionQuery {
+      factions(first: 2) {
+        edges {
+          node {
+            name
+            ships(first: 3) {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+    const response = await request(app.getHttpServer()).post('/graphql').send({ query });
+
+
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({
+      data: {
+        factions: {
+          edges: [
+            {
+              node: {
+                name: 'Alliance to Restore the Republic',
+                ships: {
+                  edges: [
+                    {
+                      node: {
+                        name: 'X-Wing',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'Y-Wing',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'A-Wing',
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            {
+              node: {
+                name: 'Galactic Empire',
+                ships: {
+                  edges: [
+                    {
+                      node: {
+                        name: 'TIE Fighter',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'TIE Interceptor',
+                      },
+                    },
+                    {
+                      node: {
+                        name: 'Executor',
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          ],
+        },
+      },
+    });
+  });
+
   it('should identify the end of the rebels ships connection', async () => {
     const query = `
       query EndOfRebelShipsQuery {
