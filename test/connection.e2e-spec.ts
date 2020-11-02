@@ -196,7 +196,6 @@ describe('Connection', () => {
 
     const response = await request(app.getHttpServer()).post('/graphql').send({ query });
 
-    console.log(JSON.stringify(response.body, null, 2));
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
