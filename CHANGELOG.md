@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/rogerballard/nestjs-relay/compare/v4.0.3...v4.1.0) (2020-11-02)
+
+
+### Features
+
+* add top-level query connection decorator ([ab582bb](https://github.com/rogerballard/nestjs-relay/commit/ab582bbc5ddf9455ef174fdefc17f480a094f165))
+
 ## [4.0.3](https://github.com/rogerballard/nestjs-relay/compare/v4.0.2...v4.0.3) (2020-10-04)
 
 
