@@ -38,6 +38,8 @@ export class ConnectionTypeFactory {
       pageInfo!: Relay.PageInfo;
     }
 
+    this.connections.set(args.nodeTypeName, Connection);
+
     return Connection;
   }
 }
