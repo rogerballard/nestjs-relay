@@ -1,3 +1,11 @@
+## [4.1.1](https://github.com/rogerballard/nestjs-relay/compare/v4.1.0...v4.1.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* add forgotten cache setter ([d585e30](https://github.com/rogerballard/nestjs-relay/commit/d585e30b4cff81beb66a92bc87d0afafb67ad02f))
+* **connections:** return existing instance if already defined ([1a3aedb](https://github.com/rogerballard/nestjs-relay/commit/1a3aedb422fe8eeaf59a382cd4a9f6415627f1a5))
+
 # [4.1.0](https://github.com/rogerballard/nestjs-relay/compare/v4.0.3...v4.1.0) (2020-11-02)
 
 
