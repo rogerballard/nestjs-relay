@@ -9,8 +9,12 @@ export interface CreateConnectionTypeArgs {
 }
 
 export class ConnectionTypeFactory {
+  private static connections = new Map();
   static create<T>(args: CreateConnectionTypeArgs): AnyConstructor<Relay.Connection<T>> {
     const nodeType = args.nodeTypeFunc() as AnyConstructor;
+    if (this.connections.has(args.nodeTypeName)) {
+      return this.connections.get(args.nodeTypeName);
+    }
 
     @ObjectType(`${args.nodeTypeName}Edge`)
     class Edge implements Relay.Edge<T> {
@@ -33,6 +37,8 @@ export class ConnectionTypeFactory {
       @Field(() => PageInfo)
       pageInfo!: Relay.PageInfo;
     }
+
+    this.connections.set(args.nodeTypeName, Connection);
 
     return Connection;
   }
