@@ -31,7 +31,7 @@ jobs:
         run: npm run test
 
       - name: Report Coverage
-        uses: coverallsapp/github-action@v1.1.1
+        uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
