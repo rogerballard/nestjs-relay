@@ -67,11 +67,11 @@ The `GlobalIdFieldResolver` function automatically implements the resolver behav
 
 ```typescript
 import { Resolver } from '@nestjs/graphql'
-import { IdFieldResolver } from 'nestjs-relay'
+import { GlobalIdFieldResolver } from 'nestjs-relay'
 import { Ship } from './ship.type'
 
 @Resolver()
-export class ShipResolver extends IdFieldResolver(Ship) {}
+export class ShipResolver extends GlobalIdFieldResolver(Ship) {}
 ```
 
 The default behaviour of the `id` field resolver will serialize a global id from either a `number`, `string` or `ResolvedGlobalId`.
