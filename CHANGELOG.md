@@ -1,3 +1,10 @@
+## [4.0.4](https://github.com/rogerballard/nestjs-relay/compare/v4.0.3...v4.0.4) (2021-02-01)
+
+
+### Bug Fixes
+
+* upgrade graphql from 15.3.0 to 15.4.0 ([#171](https://github.com/rogerballard/nestjs-relay/issues/171)) ([9a3a750](https://github.com/rogerballard/nestjs-relay/commit/9a3a750b09f1886ddd140b96f622d5d65fc6a4b7))
+
 ## [4.0.3](https://github.com/rogerballard/nestjs-relay/compare/v4.0.2...v4.0.3) (2020-10-04)
 
 
