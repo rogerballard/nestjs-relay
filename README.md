@@ -53,10 +53,6 @@ npm i --save graphql-relay graphql
 - [Mutations](docs/mutations.md)
 - [Connections](docs/connections.md)
 
-### Documentation
-
-- [Full API](https://rogerballard.github.io/nestjs-relay/)
-
 ## Further Reading
 
 For further detail, please see the following resources.
