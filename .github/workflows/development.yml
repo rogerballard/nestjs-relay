@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Node Environment
-        uses: actions/setup-node@v1.4.2
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -31,7 +31,7 @@ jobs:
         run: npm run test
 
       - name: Report Coverage
-        uses: coverallsapp/github-action@v1.1.1
+        uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
