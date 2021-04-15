@@ -3,6 +3,7 @@ import { MetadataStorage } from '../common/metadata-storage.class';
 import { InputArgFactory } from './input-arg';
 import { PayloadTypeFactory } from './payload-type';
 import { getClientMutationId } from './utils';
+import { ensurePromise } from './utils/ensure-promise';
 
 export type RelayMutationOptions = Omit<MutationOptions, 'nullable'>;
 
@@ -17,9 +18,9 @@ export function RelayMutation<T>(
      * Resolver Interceptor
      */
     const originalMethod = descriptor.value;
-    descriptor.value = function (...args: any[]) {
+    descriptor.value = async function (...args: any[]) {
       const clientMutationId = getClientMutationId(args);
-      const methodResult = originalMethod.apply(this, args);
+      const methodResult = await ensurePromise(originalMethod.apply(this, args));
       return { ...methodResult, clientMutationId };
     };
 
