@@ -71,7 +71,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.38.4",
     "rollup-plugin-typescript2": "0.27.3",
-    "semantic-release": "17.3.7",
+    "semantic-release": "17.4.4",
     "snyk": "1.406.0",
     "supertest": "5.0.0",
     "ts-jest": "26.5.0",
