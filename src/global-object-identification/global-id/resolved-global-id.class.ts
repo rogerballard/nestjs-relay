@@ -5,8 +5,8 @@ export class ResolvedGlobalId implements RelayResolvedGlobalId {
   id!: string;
 
   constructor(args?: RelayResolvedGlobalId) {
-    this.type = args?.type;
-    this.id = args?.id;
+    this.type = args?.type || '';
+    this.id = args?.id || '';
   }
 
   toString() {
