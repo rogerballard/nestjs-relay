@@ -1,3 +1,4 @@
+import { ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { GlobalIdScalar } from '../../src/nestjs-relay';
@@ -10,6 +11,7 @@ import { ShipResolver } from './ship.resolver';
 @Module({
   imports: [
     GraphQLModule.forRoot({
+      driver: ApolloDriver,
       autoSchemaFile: './test/starwars-app/schema.gql',
     }),
   ],

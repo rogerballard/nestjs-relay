@@ -1,4 +1,7 @@
-import { ResolvedGlobalId as RelayResolvedGlobalId } from 'graphql-relay';
+export interface RelayResolvedGlobalId {
+  type: string;
+  id: string;
+}
 
 export class ResolvedGlobalId implements RelayResolvedGlobalId {
   type!: string;

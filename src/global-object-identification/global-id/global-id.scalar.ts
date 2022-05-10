@@ -5,16 +5,23 @@ import { typeResolvedGlobalId, ResolvedGlobalId } from './resolved-global-id.cla
 
 @Scalar('ID', typeResolvedGlobalId)
 export class GlobalIdScalar implements CustomScalar<string, ResolvedGlobalId> {
-  parseValue(value: string): ResolvedGlobalId {
-    const { id, type } = fromGlobalId(value);
+  parseValue(value: unknown): ResolvedGlobalId {
+    const { id, type } = fromGlobalId(value as string);
     if (!id || !type) {
       throw new GraphQLError(`Invalid ID: ${value}`);
     }
     return new ResolvedGlobalId({ type, id });
   }
 
-  serialize(value: ResolvedGlobalId): string {
-    return toGlobalId(value.type, value.id);
+  serialize(value: unknown): string {
+    if (typeof value !== 'object') {
+      return value as string;
+    }
+    const { id, type } = value as ResolvedGlobalId;
+    if (!id || !type) {
+      throw new GraphQLError(`Invalid ID value: ${value}`);
+    }
+    return toGlobalId(type, id);
   }
 
   parseLiteral(ast: ValueNode): ResolvedGlobalId {

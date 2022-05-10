@@ -55,6 +55,9 @@ type IntroduceShipPayload {
 }
 
 type Query {
+  rebels: Faction
+  empire: Faction
+
   """Fetches an object given its ID"""
   node(
     """The ID of an object"""
@@ -66,8 +69,6 @@ type Query {
     """The IDs of objects"""
     ids: [ID!]!
   ): [Node]!
-  rebels: Faction
-  empire: Faction
 }
 
 type Mutation {
