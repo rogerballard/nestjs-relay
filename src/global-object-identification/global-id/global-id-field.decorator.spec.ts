@@ -1,5 +1,11 @@
-import * as NestGraphQL from '@nestjs/graphql';
 import { GlobalIdField } from './global-id-field.decorator';
+
+jest.mock('@nestjs/graphql', () => ({
+  ...jest.requireActual('@nestjs/graphql'),
+}));
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const NestGraphQL = require('@nestjs/graphql');
 
 describe('GlobalIdField', () => {
   const spy = jest.spyOn(NestGraphQL, 'ResolveField');
